@@ -40,7 +40,7 @@ const DrawerGroup = (props: NavigationItem & { children: NavigationItem[] }) => 
                             <Icon
                                 icon={icon}
                                 width={theme.spacing(5)}
-                                color={theme.palette.primary.contrastText}
+                                color={theme.palette.text.primary}
                             />
                         </ListItemIcon>
                     )}
@@ -51,7 +51,7 @@ const DrawerGroup = (props: NavigationItem & { children: NavigationItem[] }) => 
                         component={Icon}
                         icon={"tabler:chevron-right"}
                         width={theme.spacing(5)}
-                        color={theme.palette.primary.contrastText}
+                        color={theme.palette.text.primary}
                         sx={{
                             rotate: `${open ? 90 : 0}deg`,
                             transition: ".2s ease-in-out"

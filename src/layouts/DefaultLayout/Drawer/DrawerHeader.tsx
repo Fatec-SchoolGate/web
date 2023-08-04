@@ -1,11 +1,19 @@
+import { useDefaultLayoutStore } from "@/@core/stores/defaultLayoutStore";
 import { useSettingsStore } from "@/@core/stores/settingsStore";
 import { Icon } from "@iconify/react";
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Theme, Typography, useMediaQuery } from "@mui/material";
 
 const DrawerHeader = () => {
+
+    const {
+        closeDrawer
+    } = useDefaultLayoutStore();
+
     const {
         appTitle
     } = useSettingsStore();
+
+    const hidden = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
     return (
         <Box
@@ -19,14 +27,20 @@ const DrawerHeader = () => {
         >
             <Box>
                 <Typography
-                    variant={"h1"}
+                    variant={"h3"}
                 >
                     {appTitle}
                 </Typography>
             </Box>
-            <Icon
-                icon={"material-symbols:close"}
-            />
+            {hidden && (
+                <IconButton
+                    onClick={closeDrawer}
+                >
+                    <Icon
+                        icon={"material-symbols:close"}
+                    />
+                </IconButton>
+            )}
         </Box>
     );
 }

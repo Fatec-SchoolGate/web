@@ -7,7 +7,9 @@ import type { ReactNode } from 'react';
 import AuthMiddleware from '@/@core/middlewares/AuthMiddleware';
 import ThemeContainer from '@/@core/theme/ThemeContainer';
 import DefaultLayout from '@/layouts/DefaultLayout';
-import { useRouter } from 'next/router';
+
+import "../configs/i18n";
+import "../styles/global.css";
 
 export default function App({ Component, pageProps }: AppLayoutProps) {
 

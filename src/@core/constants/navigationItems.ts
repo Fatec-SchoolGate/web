@@ -2,58 +2,13 @@ import { NavigationItem } from "@/layouts/DefaultLayout/Drawer";
 
 export const navigationItems: NavigationItem[] = [
     {
-        text: "Primeira",
+        text: "Dashboards",
         icon: "tabler:smart-home",
-        value: "/dashboard"
+        value: "/dashboards"
     },
     {
-        text: "section",
-        isSection: true
-    },
-    {
-        text: "Dashboard",
-        icon: "tabler:smart-home",
-        children: [
-            {
-                text: "Primeiri",
-                icon: "tabler:smart-home",
-            },
-            {
-                text: "2",
-                icon: "tabler:smart-home",
-            },
-            {
-                text: "3",
-                icon: "tabler:smart-home",
-            },
-            {
-                text: "P2",
-                icon: "tabler:smart-home",
-                children: [
-                    {
-                        text: "Dashboard",
-                        icon: "tabler:smart-home",
-                        children: [
-                            {
-                                text: "Primeiri",
-                                icon: "tabler:smart-home",
-                            },
-                            {
-                                text: "2",
-                                icon: "tabler:smart-home",
-                            },
-                            {
-                                text: "3",
-                                icon: "tabler:smart-home",
-                            },
-                            {
-                                text: "P2",
-                                icon: "tabler:smart-home",
-                            },
-                        ]
-                    },
-                ]
-            },
-        ]
+        text: "Organizations",
+        icon: "octicon:organization-16",
+        value: "/organizations"
     },
 ];

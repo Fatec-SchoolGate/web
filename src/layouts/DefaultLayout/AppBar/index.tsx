@@ -1,35 +1,20 @@
-import { AppBar, Box, IconButton, Toolbar, useTheme } from "@mui/material"
-import MenuIcon from '@mui/icons-material/Menu';
-import { useDefaultLayoutStore } from "@/@core/stores/defaultLayoutStore";
+import { AppBar, Box, IconButton, Toolbar } from "@mui/material"
+import AppBarContent from "./AppBarContent";
 
 const LayoutAppBar = () => {
-
-    const {
-        setOpen
-    } = useDefaultLayoutStore();
-
     return (
-        <Box>
+        <Box
+            sx={{
+                my: (theme) => theme.spacing(2),
+                mx: (theme) => theme.spacing(6)
+            }}
+        >
             <AppBar
                 position={"sticky"}
-                // sx={{
-                //     mx: theme.spacing(6),
-                //     background: "none"
-                // }}
+                color={"transparent"}
             >
-                <Toolbar
-                    // sx={{
-                    //     m: 10
-                    // }}
-                >
-                    <IconButton
-                        onClick={() => setOpen(true)}
-                        sx={{
-                            display: { xs: 'block', lg: 'none' },
-                        }}
-                    >
-                        <MenuIcon/>
-                    </IconButton>
+                <Toolbar>
+                    <AppBarContent/>
                 </Toolbar>
             </AppBar>
         </Box>

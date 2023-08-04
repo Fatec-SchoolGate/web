@@ -5,6 +5,7 @@ import spacing from './spacing'
 import shadows from './shadows'
 import typography from './typography'
 import breakpoints from './breakpoints'
+import overrides from './overrides'
 import { useSettingsStore } from '../stores/settingsStore'
 
 const themeOptions = (): ThemeOptions => {
@@ -12,10 +13,10 @@ const themeOptions = (): ThemeOptions => {
   const {
     mode
   } = useSettingsStore();
-
+  
   const theme: ThemeOptions = {
     breakpoints: breakpoints(),
-    // components: overrides(settings),
+    components: overrides(),
     palette: palette(mode),
     ...spacing,
     shape: {
