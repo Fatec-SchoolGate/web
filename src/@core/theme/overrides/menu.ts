@@ -15,10 +15,7 @@ const MenuOverride = (): ThemeOptions["components"] => ({
                     color: theme.palette.primary.contrastText
                 }
             })
-        },
-        // defaultProps: {
-        //     disableRipple: true
-        // }
+        }
     }
 });
 

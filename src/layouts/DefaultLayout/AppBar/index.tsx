@@ -5,13 +5,18 @@ const LayoutAppBar = () => {
     return (
         <Box
             sx={{
+                position: "sticky",
+                top: (theme) => theme.spacing(2),
                 my: (theme) => theme.spacing(2),
                 mx: (theme) => theme.spacing(6)
             }}
         >
             <AppBar
                 position={"sticky"}
-                color={"transparent"}
+                sx={{
+                    backgroundColor: (theme) => theme.palette.background.paper,
+                    borderRadius: 0.5
+                }}
             >
                 <Toolbar>
                     <AppBarContent/>

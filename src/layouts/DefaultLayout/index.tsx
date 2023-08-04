@@ -20,21 +20,35 @@ const DefaultLayout = (props: Props) => {
     } = useDefaultLayoutStore();
     
     return (
-        <div>
+        <Box>
             <LayoutDrawer
                 items={navigationItems}
             />
             <Box
                 sx={{
-                    // width: { lg: `calc(100% - ${240}px)` },
                     ml: { lg: `${drawerWidth}px` },
                     transition: 'margin-left .25s ease-in-out',
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    "& > *": {
+                        width: "90%",
+                        maxWidth: (theme) => theme.breakpoints.values.lg,
+                    }
                 }}
             >
                 <LayoutAppBar/>
-                {children}
+                <Box
+                    id={"content-container"}
+                    sx={{
+                        my: (theme) => theme.spacing(2),
+                        mx: (theme) => theme.spacing(6)
+                    }}
+                >
+                    {children}
+                </Box>
             </Box>
-        </div>
+        </Box>
     );
 }
 
