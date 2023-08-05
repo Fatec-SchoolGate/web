@@ -21,7 +21,7 @@ const DefaultPalette = (mode: Palette['mode']): Palette => {
       lightPaperBg: whiteColor,
       darkPaperBg: darkPaperBgColor,
       bodyBg: mode === 'light' ? '#F8F7FA' : '#25293C',
-      bodyBgAccent: mode === "light" ? "#f6f6f7" : "#353a50",
+      bodyBgAccent: mode === "light" ? "#636364" : "#353a50",
       trackBg: mode === 'light' ? '#F3F2F7' : '#363B54',
       avatarBg: mode === 'light' ? '#DBDADE' : '#4A5072',
       tableHeaderBg: mode === 'light' ? '#F6F6F7' : '#4A5072'

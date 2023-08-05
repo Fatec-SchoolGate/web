@@ -4,6 +4,7 @@ import ButtonBaseOverride from "./buttonBase";
 import TabsOverride from "./tabs";
 import ChipOverride from "./chip";
 import ButtonOverride from "./button";
+import ListOverride from "./list";
 
 const overrides = (): ThemeOptions["components"] => {
     return {
@@ -12,6 +13,7 @@ const overrides = (): ThemeOptions["components"] => {
         ...ButtonOverride(),
         ...TabsOverride(),
         ...ChipOverride(),
+        ...ListOverride()
     };
 }
 
