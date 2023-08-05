@@ -5,3 +5,5 @@ const Apollo = () => {
         <Logic/>
     );
 }
+
+export default Apollo;
