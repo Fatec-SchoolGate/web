@@ -5,7 +5,7 @@ import NProgress from "nprogress";
 import type { AppLayoutProps } from 'next/app'
 import { useEffect, type ReactNode } from 'react';
 
-import AuthMiddleware from '@/@core/middlewares/AuthMiddleware';
+import Middlewares from '@/@core/middlewares/Middlewares';
 import ThemeContainer from '@/@core/theme/ThemeContainer';
 import DefaultLayout from '@/layouts/DefaultLayout';
 
@@ -13,7 +13,7 @@ import "../configs/i18n";
 import "../styles/global.css";
 import { useRouter } from 'next/router';
 
-export default function App({ Component, pageProps }: AppLayoutProps) {
+const App = ({ Component, pageProps }: AppLayoutProps) => {
 
 	const getLayout = Component.getLayout || ((page: ReactNode) => <DefaultLayout>{page}</DefaultLayout>);
 	const router = useRouter();
@@ -38,10 +38,12 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
 			client={queryClient}
 		>
 			<ThemeContainer>
-				<AuthMiddleware>
+				<Middlewares>
 					{getLayout(<Component {...pageProps} />)}
-				</AuthMiddleware>
+				</Middlewares>
 			</ThemeContainer>
 		</QueryClientProvider>
 	);
 }
+
+export default App;

@@ -1,0 +1,29 @@
+import { LoginDto } from "@/@core/dto/login/loginDto";
+import { useMutation } from "react-query";
+import api from "@/configs/api";
+import { useAuthStore } from "@/@core/stores/authStore";
+
+interface LoginResponse {
+    access_token: string;
+}
+
+const login = async (data: LoginDto) => await api.post<LoginResponse>("/auth/signIn", data);
+
+export const useLogin = () => {
+    const {
+        setLoginData
+    } = useAuthStore();
+
+    return useMutation(login, {
+        onSuccess: (response) => {
+            const {
+                data,
+                status
+            } = response;
+            
+            setLoginData(data.access_token);
+            localStorage.setItem("access_token", data.access_token);
+            api.defaults.headers.common.Authorization = `Bearer ${data.access_token}`;
+        }
+    })
+}

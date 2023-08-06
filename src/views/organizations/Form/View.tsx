@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useForm } from "react-hook-form";
-import FormTextField from "@/@core/components/FormTextField";
+import FormTextField from "@/@core/components/form/FormTextField";
 import { useTranslation } from "react-i18next";
 
 const View = () => {
