@@ -9,9 +9,11 @@ import Middlewares from '@/@core/middlewares/Middlewares';
 import ThemeContainer from '@/@core/theme/ThemeContainer';
 import DefaultLayout from '@/layouts/DefaultLayout';
 
+import { useRouter } from 'next/router';
+import { Toaster } from 'react-hot-toast';
+
 import "../configs/i18n";
 import "../styles/global.css";
-import { useRouter } from 'next/router';
 
 const App = ({ Component, pageProps }: AppLayoutProps) => {
 
@@ -38,7 +40,13 @@ const App = ({ Component, pageProps }: AppLayoutProps) => {
 			client={queryClient}
 		>
 			<ThemeContainer>
-				<Middlewares>
+				<Toaster
+					position={"bottom-center"}
+				/>
+				<Middlewares
+					authGuard={Component?.authGuard ?? true}
+					guestGuard={Component?.guestGuard ?? false}
+				>
 					{getLayout(<Component {...pageProps} />)}
 				</Middlewares>
 			</ThemeContainer>

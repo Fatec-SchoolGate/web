@@ -14,4 +14,6 @@ const OrganizationsPage = () => {
     );
 }
 
+OrganizationsPage.guestGuard = true;
+
 export default OrganizationsPage;

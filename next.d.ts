@@ -12,6 +12,8 @@ declare module 'next' {
         P
     > & {
         getLayout?: (page: ReactNode) => ReactNode;
+        authGuard?: boolean;
+        guestGuard: boolean;
     };
 }
 

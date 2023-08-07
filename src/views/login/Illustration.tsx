@@ -1,13 +1,22 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 function Illustration() {
   return (
-    <svg
+    <Box
+      component={"svg"}
       xmlns="http://www.w3.org/2000/svg"
-    //   width={width}
-    //   height={height}
       data-name="Layer 1"
       viewBox="0 0 870 520.139"
+      sx={{
+        flex: 2,
+        display: {
+          xs: "none",
+          sm: "none",
+          md: "none",
+          lg: "inherit"
+        }
+      }}
     >
       <path
         fill="#f2f2f2"
@@ -79,7 +88,7 @@ function Illustration() {
       <path fill="#ccc" d="M333 315.5H476V317.5H333z"></path>
       <path fill="#ccc" d="M377.5 107.5H379.5V411.5H377.5z"></path>
       <path fill="#ccc" d="M427.5 107.5H429.5V411.5H427.5z"></path>
-    </svg>
+    </Box>
   );
 }
 

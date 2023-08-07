@@ -2,6 +2,7 @@ import { IconButton, InputAdornment, SxProps, TextField, Theme } from "@mui/mate
 import { HTMLInputTypeAttribute, ReactNode, useState } from "react";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     control: Control<FieldValues> | Control<any>;
@@ -30,6 +31,8 @@ const FormTextField = (props: Props) => {
     
     const [isVisible, setIsVisible] = useState(true);
     
+    const { t } = useTranslation();
+
     const toggleVisibility = () => setIsVisible(!isVisible);
 
     return (
@@ -43,7 +46,7 @@ const FormTextField = (props: Props) => {
                 <TextField
                     size={"small"}
                     variant={"outlined"}
-                    helperText={error ? error.message : null}
+                    helperText={error ? t(error.message ?? "") : null}
                     error={!!error}
                     value={value}
                     fullWidth={fullWidth}

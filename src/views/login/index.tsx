@@ -10,15 +10,12 @@ const LoginContainer = () => {
                 flexDirection: "row"
             }}
         >
+            <Illustration/>
             <Box
                 sx={{
-                    flex: 2
-                }}
-            >
-                <Illustration/>
-            </Box>
-            <Box
-                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     flex: 1
                 }}
             >

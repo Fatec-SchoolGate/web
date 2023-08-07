@@ -1,22 +1,27 @@
 import { useAuthStore } from "@/@core/stores/authStore";
-import api from "@/configs/api";
 import { useMutation } from "react-query";
+import api from "@/configs/api";
+import { useRouter } from "next/router";
+import { DEFAULT_GUEST_ROUTE } from "@/@core/constants/routes";
 
 const refreshToken = async () => api.post("/auth/refresh-token");
 
 export const useRefreshToken = () => {
     const {
-        setLoading
+        setLoading,
+        setLoginData
     } = useAuthStore();
+
+    const router = useRouter();
 
     return useMutation(refreshToken, {
         onSuccess: (response) => {
-            console.log(response);
-            setLoading(false);
+            setLoginData(localStorage.getItem("access_token") ?? "");
         },
         onError: (response) => {
             api.defaults.headers.common.Authorization = "";
             localStorage.clear();
+            router.replace(DEFAULT_GUEST_ROUTE).then(() => setLoading(false));
         }
     });
 }
