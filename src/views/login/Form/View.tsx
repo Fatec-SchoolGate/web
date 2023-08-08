@@ -60,7 +60,7 @@ const View = (props: Props) => {
                     }}
                 >
                     <Checkbox/>
-                    <Typography>Remember me</Typography>
+                    <Typography>{t("rememberMe")}</Typography>
                 </Box>
                 <Box>
                     <Typography
@@ -71,7 +71,7 @@ const View = (props: Props) => {
                             color: (theme) => theme.palette.primary.main
                         }}
                     >
-                        Forgot password?
+                        {t("forgotPassword")}
                     </Typography>
                 </Box>
             </Box>
@@ -79,8 +79,29 @@ const View = (props: Props) => {
                 type={"submit"}
                 variant={"contained"}
             >
-                Login
+                {t("login")}
             </Button>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mt: (theme) => theme.spacing(4)
+                }}
+            >
+                <Typography>{t("dontHaveAnAccount")}</Typography>
+                <Typography
+                    component={Link}
+                    href={"/register"}
+                    sx={{
+                        textDecoration: "none",
+                        color: (theme) => theme.palette.primary.main
+                    }}
+                >
+                    {t("createAnAccountNow")}
+                </Typography>
+            </Box>
         </Box>
     );
 }
