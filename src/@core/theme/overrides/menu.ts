@@ -8,7 +8,10 @@ const MenuOverride = (): ThemeOptions["components"] => ({
                 fontWeight: 500,
                 "&:hover": {
                     backgroundColor: alpha(theme.palette.primary.main, .08),
-                    color: theme.palette.primary.main
+                    color: theme.palette.primary.main,
+                    "& svg": {
+                        color: theme.palette.primary.main
+                    }
                 },
                 "&.Mui-selected": {
                     backgroundColor: theme.palette.primary.main,

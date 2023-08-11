@@ -1,12 +1,12 @@
 import { Box } from "@mui/material";
 import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { ExampleDto } from "../dto/exampleDto";
 import FormTextField from "@/@core/components/form/FormTextField";
-import { OrganizationDto } from "@/@core/dto/organizationDto";
 
 interface Props {
-    form: UseFormReturn<OrganizationDto>;
-    onSubmit: (data: OrganizationDto) => void;
+    form: UseFormReturn<ExampleDto>;
+    onSubmit: (data: ExampleDto) => void;
 }
 
 const View = (props: Props) => {

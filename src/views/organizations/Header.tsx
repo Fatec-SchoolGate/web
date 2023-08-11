@@ -2,12 +2,12 @@ import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
 import Form from "./Form";
-import { useFormStore } from "@/stores/organizations/useForm";
+import { useOrganizationStore } from "@/stores/organizations/useForm";
 
 const Header = () => {
 
     const { t } = useTranslation();
-    const { openDrawer } = useFormStore();
+    const { openForm } = useOrganizationStore();
 
     return (
         <Box
@@ -23,7 +23,7 @@ const Header = () => {
                 {t("organizations")}
             </Typography>
             <Button
-                onClick={openDrawer}
+                onClick={openForm}
                 variant={"contained"}
                 startIcon={(
                     <Icon

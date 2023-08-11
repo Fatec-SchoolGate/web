@@ -33,6 +33,16 @@ const View = (props: Props) => {
                 m: (theme) => theme.spacing(4),
             }}
         >
+            <Box>
+                <Typography
+                    variant={"h1"}
+                    sx={{
+                        mb: (theme) => theme.spacing(4)
+                    }}
+                >
+                    {t("login")}
+                </Typography>
+            </Box>
             <FormTextField
                 control={control}
                 name={"email"}

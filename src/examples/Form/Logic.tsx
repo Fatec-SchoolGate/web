@@ -1,15 +1,16 @@
 import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ExampleDto } from "../dto/exampleDto";
+import { useCreateExample } from "../api/createExample";
 import View from "./View";
-import { OrganizationDto } from "@/@core/dto/organizationDto";
 
 const schema = object().shape({
-    
+    foo: string().required()
 });
 
 interface Props {
-    defaultValues: OrganizationDto;
+    defaultValues: ExampleDto;
 }
 
 const Logic = (props: Props) => {
@@ -17,16 +18,16 @@ const Logic = (props: Props) => {
         defaultValues
     } = props;
 
-    // const { mutate: createExample, isLoading } = useCreateOrganization();
+    const { mutate: createExample, isLoading } = useCreateExample();
 
-    const form = useForm<OrganizationDto>({
+    const form = useForm<ExampleDto>({
         defaultValues: defaultValues,
-        // resolver: yupResolver(schema)
+        resolver: yupResolver(schema)
     });
 
-    const handleSubmit = async (organizationDto: OrganizationDto) => {
-        // if (isLoading) return;
-        // createExample(organizationDto);
+    const handleSubmit = async (exampleDto: ExampleDto) => {
+        if (isLoading) return;
+        createExample(exampleDto);
     }
 
     return (

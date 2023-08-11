@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import OrganizationCard from "./OrganizationCard";
+import ListItemCard from "../../../@core/components/ui/ListItemCard";
 
 const YourOrganizationList = () => {
     return (
@@ -9,8 +9,8 @@ const YourOrganizationList = () => {
                 flexDirection: "column"
             }}
         >
-            <OrganizationCard/>
-            <OrganizationCard/>
+            <ListItemCard/>
+            <ListItemCard/>
         </Box>
     );
 }

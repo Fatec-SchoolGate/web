@@ -12,6 +12,10 @@ const ListOverride = (): ThemeOptions["components"] => ({
                 },
                 '&::-webkit-scrollbar-thumb': {
                     backgroundColor: theme.palette.customColors.bodyBgAccent
+                },
+                "&.MuiMenu-list": {
+                    padding: theme.spacing(2),
+                    backgroundColor: theme.palette.customColors.bodyBg,
                 }
             })
         }

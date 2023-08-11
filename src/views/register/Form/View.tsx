@@ -1,6 +1,7 @@
 import FormTextField from "@/@core/components/form/FormTextField";
 import { RegisterDto } from "@/@core/dto/register/registerDto";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import Link from "next/link";
 import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +33,14 @@ const View = (props: Props) => {
                 m: (theme) => theme.spacing(4),
             }}
         >
+            <Box>
+                <Typography
+                    variant={"h1"}
+                    sx={{ mb: (theme) => theme.spacing(4) }}
+                >
+                    {t("register")}
+                </Typography>
+            </Box>
             <FormTextField
                 control={control}
                 name={"name"}
@@ -54,6 +63,27 @@ const View = (props: Props) => {
             >
                 {t("register")}
             </Button>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mt: (theme) => theme.spacing(4)
+                }}
+            >
+                <Typography>{t("alreadyHasAnAccount")}</Typography>
+                <Typography
+                    component={Link}
+                    href={"/login"}
+                    sx={{
+                        textDecoration: "none",
+                        color: (theme) => theme.palette.primary.main
+                    }}
+                >
+                    {t("signInNow")}
+                </Typography>
+            </Box>
         </Box>
     );
 }

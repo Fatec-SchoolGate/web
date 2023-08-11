@@ -2,7 +2,7 @@ import { Box, Card, Chip, List, Typography } from "@mui/material";
 import SubInformation from "./SubInformation";
 import Actions from "./Actions";
 
-const OrganizationCard = () => {
+const ListItemCard = () => {
     return (
         <Card
             variant={"outlined"}
@@ -60,4 +60,4 @@ const OrganizationCard = () => {
     );
 }
 
-export default OrganizationCard;
+export default ListItemCard;

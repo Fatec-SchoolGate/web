@@ -1,18 +1,18 @@
+import { useOrganizationStore } from "@/stores/organizations/useForm";
 import { Drawer } from "@mui/material";
 import Apollo from "./Apollo";
-import { useFormStore } from "@/stores/organizations/useForm";
 
 const Form = () => {
     const {
-        open,
-        closeDrawer
-    } = useFormStore();
+        formOpen,
+        closeForm
+    } = useOrganizationStore();
 
     return (
         <Drawer
             anchor={"right"}
-            open={open}
-            onClose={closeDrawer}
+            open={formOpen}
+            onClose={closeForm}
         >
             <Apollo/>
         </Drawer>

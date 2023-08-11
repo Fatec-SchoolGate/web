@@ -21,5 +21,9 @@
     "forgotPassword": "Esqueceu a senha?",
     "rememberMe": "Lembrar de mim",
     "dontHaveAnAccount": "Não possui uma conta?",
-    "createAnAccountNow": "Crie uma conta agora"
+    "createAnAccountNow": "Crie uma conta agora",
+    "alreadyHasAnAccount": "Já possui uma conta?",
+    "signInNow": "Entre aqui!",
+    "edit": "Editar",
+    "delete": "Deletar"
 }

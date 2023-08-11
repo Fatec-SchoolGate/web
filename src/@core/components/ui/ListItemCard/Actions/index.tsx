@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import ThreeDotsButton from "./ThreeDotsButton";
 
 const Actions = () => {
     const { t } = useTranslation();
@@ -24,20 +25,7 @@ const Actions = () => {
             >
                 {t("preview")}
             </Button>
-            <Button
-                variant={"contained"}
-                color={"inherit"}
-                sx={{
-                    minWidth: 0,
-                    width: "32px",
-                    height: "32px",
-                    p: 0
-                }}
-            >
-                <Icon
-                    icon={"bi:three-dots"}
-                />
-            </Button>
+            <ThreeDotsButton/>
         </Box>
     );
 }

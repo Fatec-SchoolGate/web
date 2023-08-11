@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-interface FormState {
-    open: boolean;
-    openDrawer: () => void;
-    closeDrawer: () => void;
+interface OrganizationState {
+    formOpen: boolean;
+    openForm: () => void;
+    closeForm: () => void;
 }
 
-export const useFormStore = create<FormState>((set) => ({
-    open: true,
-    openDrawer: () => set(() => ({ open: true })),
-    closeDrawer: () => set(() => ({ open: false })),
+export const useOrganizationStore = create<OrganizationState>((set) => ({
+    formOpen: false,
+    openForm: () => set(() => ({ formOpen: true })),
+    closeForm: () => set(() => ({ formOpen: false })),
 }));
