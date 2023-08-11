@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Icon } from "@iconify/react";
 import Form from "./Form";
-import { useOrganizationStore } from "@/stores/organizations/useForm";
+import { useOrganizationStore } from "@/stores/organizations/useOrganization";
 
 const Header = () => {
 

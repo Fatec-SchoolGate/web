@@ -1,4 +1,4 @@
-import { useOrganizationStore } from "@/stores/organizations/useForm";
+import { useOrganizationStore } from "@/stores/organizations/useOrganization";
 import { Drawer } from "@mui/material";
 import Apollo from "./Apollo";
 

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import FormTextField from "@/@core/components/form/FormTextField";
@@ -31,9 +31,22 @@ const View = (props: Props) => {
         >
             <FormTextField
                 control={control}
-                label={t("example") ?? ""}
-                name={"example"}
+                label={t("name") ?? ""}
+                name={"name"}
             />
+            <FormTextField
+                control={control}
+                label={t("address") ?? ""}
+                name={"address"}
+            />
+            <Button
+                type={"submit"}
+            >
+                {t("create")}
+            </Button>
+            <Button>
+                {t("cancel")}
+            </Button>
         </Box>
     );
 }

@@ -3,6 +3,7 @@ import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import View from "./View";
 import { OrganizationDto } from "@/@core/dto/organizationDto";
+import { useCreateOrganization } from "@/@core/api/organizations/createOrganization";
 
 const schema = object().shape({
     
@@ -17,7 +18,7 @@ const Logic = (props: Props) => {
         defaultValues
     } = props;
 
-    // const { mutate: createExample, isLoading } = useCreateOrganization();
+    const { mutate: createOrganization, isLoading } = useCreateOrganization();
 
     const form = useForm<OrganizationDto>({
         defaultValues: defaultValues,
@@ -25,8 +26,8 @@ const Logic = (props: Props) => {
     });
 
     const handleSubmit = async (organizationDto: OrganizationDto) => {
-        // if (isLoading) return;
-        // createExample(organizationDto);
+        if (isLoading) return;
+        createOrganization(organizationDto);
     }
 
     return (
