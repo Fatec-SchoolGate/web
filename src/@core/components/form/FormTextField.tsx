@@ -1,32 +1,25 @@
-import { IconButton, InputAdornment, SxProps, TextField, Theme } from "@mui/material";
+import { IconButton, InputAdornment, SxProps, TextField, TextFieldProps, Theme } from "@mui/material";
 import { HTMLInputTypeAttribute, ReactNode, useState } from "react";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 
-interface Props {
+interface CustomProps {
     control: Control<FieldValues> | Control<any>;
     name: string;
-    placeholder?: string;
-    label?: ReactNode;
-    fullWidth?: boolean;
-    sx?: SxProps<Theme> | undefined;
-    type?: HTMLInputTypeAttribute;
     startAdornment?: ReactNode;
     endAdornment?: ReactNode;
-}
+};
+
+type Props = CustomProps & TextFieldProps;
 
 const FormTextField = (props: Props) => {
     const {
         name,
         control,
-        label,
-        placeholder,
-        sx,
-        type = "text",
         startAdornment,
         endAdornment,
-        fullWidth = true
+        type,
     } = props;
     
     const [isVisible, setIsVisible] = useState(true);
@@ -49,10 +42,6 @@ const FormTextField = (props: Props) => {
                     helperText={error ? t(error.message ?? "") : null}
                     error={!!error}
                     value={value}
-                    fullWidth={fullWidth}
-                    label={label}
-                    placeholder={placeholder}
-                    sx={sx}
                     type={(type === "password") ? (isVisible ? "password" : "text") : type}
                     onChange={onChange}
                     InputProps={{
@@ -76,6 +65,7 @@ const FormTextField = (props: Props) => {
                             </InputAdornment>
                         )
                     }}
+                    {...props}
                 />
             )}
         />

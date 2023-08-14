@@ -4,6 +4,7 @@ import Logic from "./Logic";
 const Apollo = () => {
     const defaultValues: OrganizationDto = {
         address: "",
+        description: "",
         name: ""
     };
 

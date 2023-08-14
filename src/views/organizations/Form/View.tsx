@@ -39,6 +39,13 @@ const View = (props: Props) => {
                 label={t("address") ?? ""}
                 name={"address"}
             />
+            <FormTextField
+                control={control}
+                label={t("description") ?? ""}
+                name={"description"}
+                multiline
+                rows={3}
+            />
             <Button
                 type={"submit"}
             >

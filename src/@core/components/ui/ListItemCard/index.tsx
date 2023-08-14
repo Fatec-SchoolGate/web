@@ -1,8 +1,18 @@
 import { Box, Card, Chip, List, Typography } from "@mui/material";
-import SubInformation from "./SubInformation";
+import SubInformation, { SubInformationProps } from "./SubInformation";
 import Actions from "./Actions";
 
-const ListItemCard = () => {
+interface Props {
+    title?: string;
+    subInformations?: SubInformationProps[],
+}
+
+const ListItemCard = (props: Props) => {
+    const {
+        title,
+        subInformations
+    } = props;
+
     return (
         <Card
             variant={"outlined"}
@@ -28,7 +38,7 @@ const ListItemCard = () => {
                             gap: 2
                         }}
                     >
-                        <Typography>Name</Typography>
+                        <Typography>{title}</Typography>
                         <Chip
                             variant={"outlined"}
                             label={"Member"}
@@ -42,18 +52,12 @@ const ListItemCard = () => {
                         flexWrap: "wrap"
                     }}
                 >
-                    <SubInformation
-                        icon={"tabler:building"}
-                        text={"Rua Jorge de Andrade"}
-                    />
-                    <SubInformation
-                        icon={"material-symbols:location-on"}
-                        text={"Brasil"}
-                    />
-                    <SubInformation
-                        icon={"ic:sharp-people"}
-                        text={"70 membros"}
-                    />
+                    {subInformations?.map((subInformation) => (
+                        <SubInformation
+                            icon={subInformation.icon}
+                            text={subInformation.text}
+                        />
+                    ))}
                 </List>
             </Box>
         </Card>

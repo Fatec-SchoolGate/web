@@ -1,12 +1,12 @@
 import { Box, ListItem, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 
-interface Props {
+export interface SubInformationProps {
     text: string;
     icon: string;
 }
 
-const SubInformation = (props: Props) => {
+const SubInformation = (props: SubInformationProps) => {
 
     const {
         text,
