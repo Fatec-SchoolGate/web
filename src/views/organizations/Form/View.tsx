@@ -46,14 +46,26 @@ const View = (props: Props) => {
                 multiline
                 rows={3}
             />
-            <Button
-                type={"submit"}
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: 4
+                }}
             >
-                {t("create")}
-            </Button>
-            <Button>
-                {t("cancel")}
-            </Button>
+                <Button
+                    type={"submit"}
+                    variant={"contained"}
+                >
+                    {t("add")}
+                </Button>
+                <Button
+                    variant={"outlined"}
+                    color={"secondary"}
+                >
+                    {t("cancel")}
+                </Button>
+            </Box>
         </Box>
     );
 }

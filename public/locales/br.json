@@ -4,6 +4,7 @@
     "invitedOrganizations": "Convites",
     "preview": "Ver",
     "add": "Adicionar",
+    "cancel": "Cancelar",
     "name": "Nome",
     "email": "E-mail",
     "password": "Senha",
@@ -25,5 +26,7 @@
     "alreadyHasAnAccount": "Já possui uma conta?",
     "signInNow": "Entre aqui!",
     "edit": "Editar",
-    "delete": "Deletar"
+    "delete": "Deletar",
+    "noResults": "Sem resultados",
+    "nameRequired": "Insira um nome"
 }

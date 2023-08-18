@@ -6,8 +6,16 @@ import { OrganizationDto } from "@/@core/dto/organizationDto";
 import { useCreateOrganization } from "@/@core/api/organizations/createOrganization";
 
 const schema = object().shape({
-    
+    name: string().required("nameRequired"),
+    address: string(),
+    description: string()
 });
+
+interface CreateOrganizationDto {
+    name: string;
+    address?: string;
+    description?: string;
+}
 
 interface Props {
     defaultValues: OrganizationDto;
@@ -20,9 +28,9 @@ const Logic = (props: Props) => {
 
     const { mutate: createOrganization, isLoading } = useCreateOrganization();
 
-    const form = useForm<OrganizationDto>({
+    const form = useForm<CreateOrganizationDto>({
         defaultValues: defaultValues,
-        // resolver: yupResolver(schema)
+        resolver: yupResolver(schema)
     });
 
     const handleSubmit = async (organizationDto: OrganizationDto) => {
