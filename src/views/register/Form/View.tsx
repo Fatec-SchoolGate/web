@@ -1,3 +1,4 @@
+import FormImageField from "@/@core/components/form/FormImageField";
 import FormTextField from "@/@core/components/form/FormTextField";
 import { RegisterDto } from "@/@core/dto/register/registerDto";
 import { Box, Button, Typography } from "@mui/material";
@@ -11,14 +12,13 @@ interface Props {
 }
 
 const View = (props: Props) => {
-
     const {
         form,
         onSubmit
     } = props;
 
-    const { control, handleSubmit } = form;
-
+    const { control, register, handleSubmit, setValue, watch } = form;
+    
     const { t } = useTranslation();
 
     return (
@@ -41,6 +41,14 @@ const View = (props: Props) => {
                     {t("register")}
                 </Typography>
             </Box>
+            <FormImageField
+                watch={watch}
+                setValue={setValue}
+                register={register}
+                name={"profileImage"}
+                width={150}
+                height={150}
+            />
             <FormTextField
                 control={control}
                 name={"name"}

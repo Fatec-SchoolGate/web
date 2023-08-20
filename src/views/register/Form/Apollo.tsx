@@ -3,6 +3,7 @@ import Logic from "./Logic";
 
 const Apollo = () => {
     const defaultValues: RegisterDto = {
+        profileImage: null,
         name: "",
         email: "",
         password: ""

@@ -7,14 +7,15 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { object, string } from "yup";
+import { mixed, object, string } from "yup";
 import View from "./View";
 
 const schema = object().shape({
+    profileImage: mixed(),
     name: string().required("enterName"),
     email: string().email("needsToBeEmail").required("enterEmail"),
     password: string().min(8, "minOf8").max(255, "maxOf255").required("enterPassword")
-})
+});
 
 interface Props {
     defaultValues: RegisterDto;
@@ -36,20 +37,21 @@ const Logic = (props: Props) => {
 
     const handleSubmit = async (registerDto: RegisterDto) => {
         if (isLoading) return;
-        register(registerDto, {
-            onSuccess: () => {
-                toast.success(t("registerSuccessful"));
-                router.replace(DEFAULT_AUTH_ROUTE);
-            },
-            onError: (error) => {
-                if (error instanceof AxiosError && error.response?.status === 401) {
-                    // form.setError("email", {
-                    //     type: "custom",
-                    //     message: "unauthorizedLogin"
-                    // });
-                }
-            }
-        });
+        console.log(registerDto);
+        // register(registerDto, {
+        //     onSuccess: () => {
+        //         toast.success(t("registerSuccessful"));
+        //         router.replace(DEFAULT_AUTH_ROUTE);
+        //     },
+        //     onError: (error) => {
+        //         if (error instanceof AxiosError && error.response?.status === 401) {
+        //             // form.setError("email", {
+        //             //     type: "custom",
+        //             //     message: "unauthorizedLogin"
+        //             // });
+        //         }
+        //     }
+        // });
     }
 
     return (
