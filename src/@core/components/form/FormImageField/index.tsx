@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Box, Button, ButtonBase, ButtonBaseProps } from "@mui/material";
-import { ChangeEvent, MouseEvent, MouseEventHandler, useRef } from "react";
+import { ChangeEvent, MouseEvent, MouseEventHandler, useRef, useState } from "react";
 import { UseFormRegister, UseFormSetValue, UseFormWatch } from "react-hook-form";
 
 const fileToBase64 = async (file: File) => (new Promise((resolve, reject) => {
@@ -30,7 +30,7 @@ const FormImageField = (props: Props) => {
     } = props;
 
     const ref = useRef<HTMLInputElement>(null);
-    const image = watch(name);
+    const [base64Image, setBase64Image] = useState<null | string>(null);
 
     const onSubmitImage = async (event: ChangeEvent<HTMLInputElement>) => {
         const {
@@ -40,10 +40,10 @@ const FormImageField = (props: Props) => {
         if (!files || files.length == 0) return;
         
         const file = files[0];
+        setValue(name, file);
+
         const base64Image = await fileToBase64(file) as string;
-        
-        setValue(name, base64Image);
-        return base64Image;
+        setBase64Image(base64Image);
     }
 
     const onClick = () => {
@@ -56,47 +56,51 @@ const FormImageField = (props: Props) => {
         event.stopPropagation();
         setValue(name, null);
     }
-    
+
     return (
         <Box
-            component={ButtonBase}
             onClick={onClick}
             sx={{
                 width,
                 height,
                 borderRadius: 1,
-                backgroundImage: `url("${image}")`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
+                ...(base64Image && {
+                    backgroundImage: `url("${base64Image}")`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                }),
+                position: "relative",
                 backgroundColor: (theme) => theme.palette.customColors.bodyBgAccent,
             }}
         >
-            <ButtonBase
-                onClick={resetImage}
-                variant={"contained"}
-                color={"primary"}
-                sx={{
-                    position: "absolute",
-                    width: 30,
-                    height: 30,
-                    minWidth: 0,
-                    top: -10,
-                    right: -10,
-                    borderRadius: 1,
-                    bgcolor: (theme) => theme.palette.primary.main,
-                }}
-            >
-                <Icon width={15} height={15} icon={"material-symbols:close"}/>
-            </ButtonBase>
+            {base64Image && (
+                <ButtonBase
+                    onClick={resetImage}
+                    color={"primary"}
+                    sx={{
+                        position: "absolute",
+                        width: 30,
+                        height: 30,
+                        minWidth: 0,
+                        top: -10,
+                        right: -10,
+                        borderRadius: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        bgcolor: (theme) => theme.palette.primary.main,
+                    }}
+                >
+                    <Icon width={20} height={20} icon={"material-symbols:close"}/>
+                </ButtonBase>
+            )}
             <input
-                // onChange={(event) => {
-                //     onChange((event));
-                // }}
                 {...register(name, {
                     onChange: onSubmitImage,
                 })}
                 ref={ref}
                 type={"file"}
+                accept={".jpg, .jpeg, .png"}
                 hidden
             />
         </Box>

@@ -38,20 +38,20 @@ const Logic = (props: Props) => {
     const handleSubmit = async (registerDto: RegisterDto) => {
         if (isLoading) return;
         console.log(registerDto);
-        // register(registerDto, {
-        //     onSuccess: () => {
-        //         toast.success(t("registerSuccessful"));
-        //         router.replace(DEFAULT_AUTH_ROUTE);
-        //     },
-        //     onError: (error) => {
-        //         if (error instanceof AxiosError && error.response?.status === 401) {
-        //             // form.setError("email", {
-        //             //     type: "custom",
-        //             //     message: "unauthorizedLogin"
-        //             // });
-        //         }
-        //     }
-        // });
+        register(registerDto, {
+            onSuccess: () => {
+                toast.success(t("registerSuccessful"));
+                router.replace(DEFAULT_AUTH_ROUTE);
+            },
+            onError: (error) => {
+                if (error instanceof AxiosError && error.response?.status === 401) {
+                    // form.setError("email", {
+                    //     type: "custom",
+                    //     message: "unauthorizedLogin"
+                    // });
+                }
+            }
+        });
     }
 
     return (

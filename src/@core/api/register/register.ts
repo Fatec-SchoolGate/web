@@ -9,7 +9,19 @@ interface RegisterResponse {
     accessToken: string;
 }
 
-const register = (registerDto: RegisterDto) => api.put<RegisterResponse>("/auth/register", registerDto);
+const register = (registerDto: RegisterDto) => {
+    const formData = new FormData();
+    formData.append("name", registerDto.name);
+    formData.append("email", registerDto.email);
+    formData.append("password", registerDto.password);
+    formData.append("profileImage", registerDto.profileImage!);
+
+    return api.put<RegisterResponse>("/auth/register", registerDto, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        }
+    });
+}
 
 export const useRegister = () => {
     const {
@@ -18,14 +30,14 @@ export const useRegister = () => {
 
     return useMutation(register, {
         onSuccess: (response) => {
-            const {
-                data,
-                status
-            } = response;
+            // const {
+            //     data,
+            //     status
+            // } = response;
             
-            setLoginData(data.accessToken);
-            localStorage.setItem("access_token", data.accessToken);
-            api.defaults.headers.common.Authorization = `Bearer ${data.accessToken}`;
+            // setLoginData(data.accessToken);
+            // localStorage.setItem("access_token", data.accessToken);
+            // api.defaults.headers.common.Authorization = `Bearer ${data.accessToken}`;
         }
     });
 }

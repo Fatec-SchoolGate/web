@@ -1,5 +1,5 @@
 export interface RegisterDto {
-    profileImage: string | null;
+    profileImage: File | null;
     name: string;
     email: string;
     password: string;
