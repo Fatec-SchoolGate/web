@@ -2,6 +2,7 @@ import { Avatar, Box, IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useSettingsStore } from "@/@core/stores/settingsStore";
 import ActionLanguage from "./ActionLanguage";
+import ActionAvatar from "./ActionAvatar";
 
 const AppBarActions = () => {
     const {
@@ -36,9 +37,7 @@ const AppBarActions = () => {
                     icon={"mi:notification"}
                 />
             </IconButton>
-            <IconButton>
-                <Avatar>GR</Avatar>
-            </IconButton>
+            <ActionAvatar/>
         </Box>
     );
 }

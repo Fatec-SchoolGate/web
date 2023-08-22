@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { UserDto } from "../dto/userDto";
 
 interface AuthState {
     accessToken: string | null;
@@ -6,6 +7,8 @@ interface AuthState {
     loading: boolean;
     setLoading: (loading: boolean) => void;
     authed: boolean;
+    user?: UserDto;
+    setUser: (userDto: UserDto) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -18,5 +21,6 @@ export const useAuthStore = create<AuthState>((set) => ({
         }));
     },
     loading: true,
-    setLoading: (loading) => set(() => ({ loading }))
+    setLoading: (loading) => set(() => ({ loading })),
+    setUser: (user) => set(() => ({ user }))
 }));

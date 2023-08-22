@@ -1,10 +1,13 @@
 import { RegisterDto } from "@/@core/dto/register/registerDto";
 import { useAuthStore } from "@/@core/stores/authStore";
-import api from "@/configs/api";
 import { useMutation } from "react-query";
+import jwt from "jwt-decode";
+import api from "@/configs/api";
+import { JwtTokenDecodedDto } from "@/@core/dto/jwtTokenDto";
+import { UserDto } from "@/@core/dto/userDto";
 
 interface RegisterResponse {
-    user: unknown;
+    user: UserDto;
     success: boolean;
     accessToken: string;
 }
@@ -25,19 +28,22 @@ const register = (registerDto: RegisterDto) => {
 
 export const useRegister = () => {
     const {
-        setLoginData
+        setLoginData,
+        setUser
     } = useAuthStore();
 
     return useMutation(register, {
         onSuccess: (response) => {
-            // const {
-            //     data,
-            //     status
-            // } = response;
-            
-            // setLoginData(data.accessToken);
-            // localStorage.setItem("access_token", data.accessToken);
-            // api.defaults.headers.common.Authorization = `Bearer ${data.accessToken}`;
+            const {
+                data,
+                status
+            } = response;
+            const decodedToken = jwt<JwtTokenDecodedDto>(data.accessToken);
+            const user = decodedToken?.user;
+            setUser(user);
+            setLoginData(data.accessToken);
+            localStorage.setItem("access_token", data.accessToken);
+            api.defaults.headers.common.Authorization = `Bearer ${data.accessToken}`;
         }
     });
 }

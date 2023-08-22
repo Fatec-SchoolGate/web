@@ -30,6 +30,7 @@ const View = (props: Props) => {
                 flexDirection: "column",
                 gap: 4,
                 width: 450,
+                alignItems: "center",
                 m: (theme) => theme.spacing(4),
             }}
         >
@@ -53,17 +54,20 @@ const View = (props: Props) => {
                 control={control}
                 name={"name"}
                 label={t("name")}
+                fullWidth
             />
             <FormTextField
                 control={control}
                 name={"email"}
                 label={t("email")}
+                fullWidth
             />
             <FormTextField
                 control={control}
                 name={"password"}
                 label={t("password")}
                 type={"password"}
+                fullWidth
             />
             <Button
                 type={"submit"}

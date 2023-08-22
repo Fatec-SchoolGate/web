@@ -37,7 +37,7 @@ const Logic = (props: Props) => {
 
     const handleSubmit = async (registerDto: RegisterDto) => {
         if (isLoading) return;
-        console.log(registerDto);
+        
         register(registerDto, {
             onSuccess: () => {
                 toast.success(t("registerSuccessful"));
@@ -45,10 +45,10 @@ const Logic = (props: Props) => {
             },
             onError: (error) => {
                 if (error instanceof AxiosError && error.response?.status === 401) {
-                    // form.setError("email", {
-                    //     type: "custom",
-                    //     message: "unauthorizedLogin"
-                    // });
+                    form.setError("email", {
+                        type: "custom",
+                        message: "unauthorizedLogin"
+                    });
                 }
             }
         });
