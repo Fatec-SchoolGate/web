@@ -1,15 +1,51 @@
 import { useAuthStore } from "@/@core/stores/authStore";
-import { Avatar, IconButton } from "@mui/material";
+import { Icon } from "@iconify/react";
+import { Avatar, IconButton, ListItemIcon, Menu, MenuItem, Typography } from "@mui/material";
+import { MouseEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ActionAvatar = () => {
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
     const { user } = useAuthStore();
-    
+    const { t } = useTranslation();
+
+    const openMenu = (event: MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
+    const closeMenu = () => setAnchorEl(null);
+
     return (
-        <IconButton>
-            <Avatar src={`${user?.profileImage}?alt=media`}>
-                {user?.name.charAt(0)}
-            </Avatar>
-        </IconButton>
+        <>
+            <IconButton
+                onClick={openMenu}
+            >
+                <Avatar src={`${user?.profileImage}?alt=media`}>
+                    {user?.name.charAt(0)}
+                </Avatar>
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                open={!!anchorEl}
+                onClose={closeMenu}
+            >
+                <MenuItem>
+                    <Avatar
+                        sx={{ mr: (theme) => theme.spacing(4), width: 20, height: 20 }}
+                        src={`${user?.profileImage}?alt=media`}
+                    >
+                        {user?.name.charAt(0)}
+                    </Avatar>
+                    <Typography>
+                        {t("profile")}
+                    </Typography>
+                </MenuItem>
+                <MenuItem>
+                    <ListItemIcon>
+                        <Icon icon={"mdi:sign-out"}/>
+                    </ListItemIcon>
+                    {t("signOut")}
+                </MenuItem>
+            </Menu>
+        </>
     );
 }
 

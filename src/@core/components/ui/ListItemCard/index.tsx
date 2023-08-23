@@ -4,13 +4,15 @@ import Actions from "./Actions";
 
 interface Props {
     title?: string;
-    subInformations?: SubInformationProps[],
+    subInformations?: SubInformationProps[];
+    previewUrl?: string;
 }
 
 const ListItemCard = (props: Props) => {
     const {
         title,
-        subInformations
+        subInformations,
+        previewUrl
     } = props;
 
     return (
@@ -44,7 +46,9 @@ const ListItemCard = (props: Props) => {
                             label={"Member"}
                         />
                     </Box>
-                    <Actions/>
+                    <Actions
+                        previewUrl={previewUrl}
+                    />
                 </Box>
                 <List
                     sx={{

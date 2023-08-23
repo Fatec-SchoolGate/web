@@ -2,8 +2,14 @@ import { Icon } from "@iconify/react";
 import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ThreeDotsButton from "./ThreeDotsButton";
+import Link from "next/link";
 
-const Actions = () => {
+interface Props {
+    previewUrl?: string;
+}
+
+const Actions = (props: Props) => {
+    const { previewUrl } = props;
     const { t } = useTranslation();
 
     return (
@@ -14,17 +20,21 @@ const Actions = () => {
                 gap: 3
             }}
         >
-            <Button
-                variant={"contained"}
-                color={"inherit"}
-                startIcon={(
-                    <Icon
-                        icon={"mdi:eye-outline"}
-                    />
-                )}
-            >
-                {t("preview")}
-            </Button>
+            {previewUrl && (
+                <Button
+                    component={Link}
+                    href={previewUrl}
+                    variant={"contained"}
+                    color={"inherit"}
+                    startIcon={(
+                        <Icon
+                            icon={"mdi:eye-outline"}
+                        />
+                    )}
+                >
+                    {t("preview")}
+                </Button>
+            )}
             <ThreeDotsButton/>
         </Box>
     );

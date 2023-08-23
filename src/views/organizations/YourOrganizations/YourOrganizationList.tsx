@@ -20,6 +20,7 @@ const YourOrganizationList = () => {
                 <ListItemCard
                     key={organization.id ?? key}
                     title={organization.name}
+                    previewUrl={`/organizations/${organization.id}`}
                 />   
             ))}
             {!organizations || organizations?.length == 0 && (
