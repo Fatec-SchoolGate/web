@@ -54,6 +54,7 @@ const FormImageField = (props: Props) => {
 
     const resetImage = (event: MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
+        setBase64Image(null);
         setValue(name, null);
     }
 
