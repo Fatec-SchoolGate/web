@@ -31,5 +31,7 @@
   "nameRequired": "Insira um nome",
   "signOut": "Sair",
   "profile": "Perfil",
-  "subject": "Matéria"
+  "subject": "Matéria",
+  "noSubjects": "Sem matérias",
+  "description": "Descrição"
 }
