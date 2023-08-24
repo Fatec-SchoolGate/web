@@ -1,8 +1,11 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, LinearProgress } from "@mui/material";
 import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import FormTextField from "@/@core/components/form/FormTextField";
 import { OrganizationDto } from "@/@core/dto/organizationDto";
+import Submit from "./Submit";
+import StickyLinearProgress from "@/@core/components/ui/StickyLinearProgress";
+import { useIsCreatingOrganization } from "@/@core/api/organizations/createOrganization";
 
 interface Props {
     form: UseFormReturn<OrganizationDto>;
@@ -18,6 +21,8 @@ const View = (props: Props) => {
     const { control, handleSubmit } = form;
     const { t } = useTranslation();
 
+    const isLoading = useIsCreatingOrganization();
+
     return (
         <Box
             component={"form"}
@@ -26,9 +31,11 @@ const View = (props: Props) => {
                 m: (theme) => theme.spacing(4),
                 display: "flex",
                 flexDirection: "column",
-                gap: 4
+                gap: 4,
+                position: "relative"
             }}
         >
+            <StickyLinearProgress isLoading={isLoading}/>
             <FormTextField
                 control={control}
                 label={t("name") ?? ""}
@@ -46,26 +53,8 @@ const View = (props: Props) => {
                 multiline
                 rows={3}
             />
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 4
-                }}
-            >
-                <Button
-                    type={"submit"}
-                    variant={"contained"}
-                >
-                    {t("add")}
-                </Button>
-                <Button
-                    variant={"outlined"}
-                    color={"secondary"}
-                >
-                    {t("cancel")}
-                </Button>
-            </Box>
+            
+            <Submit/>
         </Box>
     );
 }

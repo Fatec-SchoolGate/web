@@ -1,5 +1,5 @@
 import { useOrganizationStore } from "@/stores/organizations/useOrganization";
-import { Drawer } from "@mui/material";
+import { Drawer, LinearProgress } from "@mui/material";
 import Apollo from "./Apollo";
 
 const Form = () => {
@@ -14,6 +14,11 @@ const Form = () => {
             open={formOpen}
             onClose={closeForm}
         >
+            {/* <LinearProgress
+                sx={{
+                    position: "sticky"
+                }}
+            /> */}
             <Apollo/>
         </Drawer>
     );

@@ -3,6 +3,8 @@ import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import FormTextField from "@/@core/components/form/FormTextField";
 import { OrganizationDto } from "@/@core/dto/organizationDto";
+import StickyLinearProgress from "@/@core/components/ui/StickyLinearProgress";
+import { useIsCreatingSubject } from "@/@core/api/subjects/createSubject";
 
 interface Props {
     form: UseFormReturn<OrganizationDto>;
@@ -17,6 +19,7 @@ const View = (props: Props) => {
 
     const { control, handleSubmit } = form;
     const { t } = useTranslation();
+    const isLoading = useIsCreatingSubject();
 
     return (
         <Box
@@ -29,6 +32,7 @@ const View = (props: Props) => {
                 gap: 4
             }}
         >
+            <StickyLinearProgress isLoading={isLoading}/>
             <FormTextField
                 control={control}
                 label={t("name") ?? ""}
@@ -49,12 +53,14 @@ const View = (props: Props) => {
                 }}
             >
                 <Button
+                    disabled={isLoading}
                     type={"submit"}
                     variant={"contained"}
                 >
                     {t("add")}
                 </Button>
                 <Button
+                    disabled={isLoading}
                     variant={"outlined"}
                     color={"secondary"}
                 >

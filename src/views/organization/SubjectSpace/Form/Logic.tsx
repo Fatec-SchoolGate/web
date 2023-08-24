@@ -6,8 +6,8 @@ import View from "./View";
 import { useCreateSubject } from "@/@core/api/subjects/createSubject";
 
 const schema = object().shape({
-    name: string().required("nameRequired").default("laksjdlkjas"),
-    description: string().default("teste"),
+    name: string().required("nameRequired"),
+    description: string(),
     displayImage: mixed<File>(),
     backgroundImage: mixed<File>()
 });
@@ -24,13 +24,14 @@ const Logic = (props: Props) => {
     const { mutate: createSubject, isLoading } = useCreateSubject();
 
     const form = useForm<CreateSubjectDto>({
-        defaultValues: schema.cast(),
+        defaultValues,
         resolver: yupResolver(schema)
     });
 
     const handleSubmit = async (subject: CreateSubjectDto) => {
         if (isLoading) return;
         
+        createSubject(subject);
     }
 
     return (

@@ -1,8 +1,8 @@
-import { OrganizationDto } from "@/@core/dto/organizationDto";
+import { CreateOrganizationDto } from "@/@core/dto/organization/createOrganizationDto";
 import Logic from "./Logic";
 
 const Apollo = () => {
-    const defaultValues: OrganizationDto = {
+    const defaultValues: CreateOrganizationDto = {
         address: "",
         description: "",
         name: ""

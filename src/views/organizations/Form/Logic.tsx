@@ -2,8 +2,12 @@ import { useForm } from "react-hook-form";
 import { object, string } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import View from "./View";
-import { OrganizationDto } from "@/@core/dto/organizationDto";
 import { useCreateOrganization } from "@/@core/api/organizations/createOrganization";
+import { CreateOrganizationDto } from "@/@core/dto/organization/createOrganizationDto";
+import { useOrganizations } from "@/@core/api/organizations/getOrganizations";
+import { useOrganizationStore } from "@/stores/organizations/useOrganization";
+import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const schema = object().shape({
     name: string().required("nameRequired"),
@@ -11,14 +15,8 @@ const schema = object().shape({
     description: string()
 });
 
-interface CreateOrganizationDto {
-    name: string;
-    address?: string;
-    description?: string;
-}
-
 interface Props {
-    defaultValues: OrganizationDto;
+    defaultValues: CreateOrganizationDto;
 }
 
 const Logic = (props: Props) => {
@@ -26,16 +24,25 @@ const Logic = (props: Props) => {
         defaultValues
     } = props;
 
+    const { t } = useTranslation();
     const { mutate: createOrganization, isLoading } = useCreateOrganization();
+    const { refetch } = useOrganizations();
+    const { closeForm } = useOrganizationStore();
 
     const form = useForm<CreateOrganizationDto>({
-        defaultValues: defaultValues,
+        defaultValues,
         resolver: yupResolver(schema)
     });
 
-    const handleSubmit = async (organizationDto: OrganizationDto) => {
+    const handleSubmit = async (organizationDto: CreateOrganizationDto) => {
         if (isLoading) return;
-        createOrganization(organizationDto);
+        createOrganization(organizationDto, {
+            onSuccess: () => {
+                toast.success(t("organizationCreationSuccess"));
+                refetch();
+                closeForm();
+            }
+        });
     }
 
     return (
