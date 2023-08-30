@@ -8,7 +8,8 @@ const LayoutAppBar = () => {
                 position: "sticky",
                 top: (theme) => theme.spacing(2),
                 my: (theme) => theme.spacing(2),
-                mx: (theme) => theme.spacing(6)
+                mx: (theme) => theme.spacing(6),
+                zIndex: 1
             }}
         >
             <AppBar

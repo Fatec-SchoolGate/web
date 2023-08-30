@@ -1,10 +1,10 @@
-import { useOrganizationPageStore } from "@/stores/organization/useOrganizationPageStore";
 import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useSubjectSectionStore } from "../store";
 
 const Header = () => {
     const { t } = useTranslation();
-    const { openForm } = useOrganizationPageStore();
+    const { openForm } = useSubjectSectionStore();
 
     return (
         <Box

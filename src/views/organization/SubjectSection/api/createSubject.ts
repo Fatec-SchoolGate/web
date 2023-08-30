@@ -1,9 +1,10 @@
-import { CreateSubjectDto } from "@/@core/dto/subject/createSubjectDto";
+
 import { jsonToFormData } from "@/@core/utils/json-to-formdata";
 import api from "@/configs/api";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useIsMutating, useMutation } from "react-query";
+import { CreateSubjectDto } from "../dto/createSubjectDto";
 
 const createSubject = (createSubjectDto: CreateSubjectDto) => {
     const formData = jsonToFormData(createSubjectDto);

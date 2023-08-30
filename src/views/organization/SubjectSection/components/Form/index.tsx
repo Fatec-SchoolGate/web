@@ -1,13 +1,12 @@
-import { useOrganizationStore } from "@/stores/organizations/useOrganization";
 import { Drawer } from "@mui/material";
 import Apollo from "./Apollo";
-import { useOrganizationPageStore } from "@/stores/organization/useOrganizationPageStore";
+import { useSubjectSectionStore } from "../../store";
 
 const Form = () => {
     const {
         isFormOpen,
         closeForm
-    } = useOrganizationPageStore();
+    } = useSubjectSectionStore();
 
     return (
         <Drawer

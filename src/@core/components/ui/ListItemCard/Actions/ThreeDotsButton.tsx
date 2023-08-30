@@ -2,6 +2,7 @@ import { Button, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/materia
 import { Icon } from "@iconify/react";
 import { MouseEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
+import EditAction from "./EditAction";
 
 const ThreeDotsButton = () => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>();
@@ -32,6 +33,7 @@ const ThreeDotsButton = () => {
                 anchorEl={anchorEl}
                 open={!!anchorEl}
                 onClose={closeMenu}
+                onClick={closeMenu}
                 anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'right',
@@ -41,14 +43,7 @@ const ThreeDotsButton = () => {
                     horizontal: 'right',
                 }}
             >
-                <MenuItem>
-                    <ListItemIcon>
-                        <Icon icon={"material-symbols:edit"} />
-                    </ListItemIcon>
-                    <ListItemText>
-                        {t("edit")}
-                    </ListItemText>
-                </MenuItem>
+                <EditAction/> 
                 <MenuItem>
                     <ListItemIcon>
                         <Icon icon={"material-symbols:delete"} />

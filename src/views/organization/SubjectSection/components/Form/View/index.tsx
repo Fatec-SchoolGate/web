@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import FormTextField from "@/@core/components/form/FormTextField";
 import { OrganizationDto } from "@/@core/dto/organizationDto";
 import StickyLinearProgress from "@/@core/components/ui/StickyLinearProgress";
-import { useIsCreatingSubject } from "@/@core/api/subjects/createSubject";
+import { useIsCreatingSubject } from "../../../api/createSubject";
+import { useIsUpdatingSubject } from "../../../api/updateSubject";
+import { useSubjectSectionStore } from "../../../store";
 
 interface Props {
     form: UseFormReturn<OrganizationDto>;
@@ -19,7 +21,9 @@ const View = (props: Props) => {
 
     const { control, handleSubmit } = form;
     const { t } = useTranslation();
-    const isLoading = useIsCreatingSubject();
+    const isCreating = useIsCreatingSubject();
+    const isUpdating = useIsUpdatingSubject();
+    const isLoading = isCreating || isUpdating;
 
     return (
         <Box
@@ -57,7 +61,7 @@ const View = (props: Props) => {
                     type={"submit"}
                     variant={"contained"}
                 >
-                    {t("add")}
+                    {t("save")}
                 </Button>
                 <Button
                     disabled={isLoading}

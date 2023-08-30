@@ -1,9 +1,9 @@
 import { Card } from "@mui/material";
-import Header from "./Header";
-import Form from "./Form";
-import SubjectList from "./SubjectList";
+import Header from "./components/Header";
+import Form from "./components/Form";
+import SubjectList from "./components/SubjectList";
 
-const SubjectSpace = () => {
+const SubjectSection = () => {
     return (
         <Card
             sx={{
@@ -17,4 +17,4 @@ const SubjectSpace = () => {
     );
 }
 
-export default SubjectSpace;
+export default SubjectSection;

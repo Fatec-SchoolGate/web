@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
-import SubjectSpace from "./SubjectSpace";
+import SubjectSection from "./SubjectSection";
 
 const OrganizationContainer = () => {
     return (
         <Box>
-            <SubjectSpace/>
+            <SubjectSection/>
         </Box>
     );
 }
