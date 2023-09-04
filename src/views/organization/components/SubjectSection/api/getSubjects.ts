@@ -1,6 +1,6 @@
-import { SubjectDto } from "@/@core/dto/subject/subjectDto";
 import api from "@/configs/api";
 import { useQuery } from "react-query";
+import { SubjectDto } from "../dto/subjectDto";
 
 interface Response {
     subjects: SubjectDto[];
