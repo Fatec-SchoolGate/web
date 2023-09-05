@@ -25,23 +25,27 @@ const Logic = (props: Props) => {
     } = props;
 
     const { t } = useTranslation();
-    const { mutate: createOrganization, isLoading } = useCreateOrganization();
+    const { mutateAsync: createOrganization, isLoading } = useCreateOrganization();
     const { refetch } = useOrganizations();
     const { closeForm } = useOrganizationStore();
 
     const form = useForm<CreateOrganizationDto>({
         defaultValues,
-        resolver: yupResolver(schema)
+        resolver: yupResolver<CreateOrganizationDto>(schema)
     });
 
     const handleSubmit = async (organizationDto: CreateOrganizationDto) => {
         if (isLoading) return;
-        createOrganization(organizationDto, {
+
+        toast.promise(createOrganization(organizationDto, {
             onSuccess: () => {
-                toast.success(t("organizationCreationSuccess"));
                 refetch();
                 closeForm();
             }
+        }), {
+            loading: t("creating"),
+            success: t("successCreatingOrganization"),
+            error: t("errorCreatingOrganization")
         });
     }
 

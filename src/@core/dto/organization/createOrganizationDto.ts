@@ -1,4 +1,4 @@
-export type CreateOrganizationDto = {
+export interface CreateOrganizationDto {
     name: string;
     address?: string;
     description?: string;
