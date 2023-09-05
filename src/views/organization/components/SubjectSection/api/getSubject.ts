@@ -17,6 +17,6 @@ export interface Subject {
 
 const getSubject = (subjectId: string) => api.get<Response>(`subjects/${subjectId}`);
 
-export const useSubject = (subjectId: string) => useQuery(["subject", subjectId], () => getSubject(subjectId), {
+export const useSubject = (subjectId?: string) => useQuery(["subject", subjectId], () => getSubject(subjectId!), {
     enabled: !!subjectId
 });

@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { useIsMutating, useMutation } from "react-query";
 import { CreateSubjectDto } from "../dto/createSubjectDto";
+import { useRouter } from "next/router";
 
 const createSubject = (createSubjectDto: CreateSubjectDto) => {
     const formData = jsonToFormData(createSubjectDto);

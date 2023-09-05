@@ -4,9 +4,13 @@ import { Box, Skeleton, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useSubjects } from "../api/getSubjects";
 import { useSubjectSectionStore } from "../store";
+import { useRouter } from "next/router";
 
 const SubjectList = () => {
 
+    const router = useRouter();
+    const { organizationId } = router.query;
+    
     const { t } = useTranslation();
     const { data: response, isLoading } = useSubjects();
     const subjects = response?.data.subjects ?? [];
@@ -33,6 +37,7 @@ const SubjectList = () => {
                     key={subject.id}
                     title={subject.name}
                     onEditClick={openFormEdit}
+                    previewUrl={`${organizationId}/subjects/${subject.id}`}
                 />
             ))}
         </Box>

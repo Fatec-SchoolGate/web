@@ -1,11 +1,11 @@
-import { Card } from "@mui/material";
-import Header from "./components/Header";
+import { Box } from "@mui/material";
+import Header from "./components/header";
 import Form from "./components/Form";
-import SubjectList from "./components/SubjectList";
+import SubjectList from "./components/subject-list";
 
 const SubjectSection = () => {
     return (
-        <Card
+        <Box
             sx={{
                 p: (theme) => theme.spacing(4)
             }}
@@ -13,7 +13,7 @@ const SubjectSection = () => {
             <Header/>
             <SubjectList/>
             <Form/>
-        </Card>
+        </Box>
     );
 }
 

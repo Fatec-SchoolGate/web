@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material"
+import { Box } from "@mui/material"
 import { useMembersFromOrganization } from "../../api/getMembersFromOrganization";
 import { useRouter } from "next/router";
 import ListItemCard from "@/@core/components/ui/ListItemCard";
@@ -12,7 +12,7 @@ const MembersList = () => {
     const users = response?.data?.users ?? [];
 
     return (
-        <Card
+        <Box
             sx={{
                 p: (theme) => theme.spacing(4)
             }}
@@ -27,7 +27,7 @@ const MembersList = () => {
                     ]}
                 />
             ))}
-        </Card>
+        </Box>
     );
 }
 

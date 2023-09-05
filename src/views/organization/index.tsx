@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Card, Tab, Tabs } from "@mui/material";
 import SubjectSection from "./components/SubjectSection";
 import SwipeableViews from "react-swipeable-views";
 import MembersList from "./components/members";
@@ -14,7 +14,7 @@ const OrganizationContainer = () => {
     const changeTab = (index: number) => setTab(index);
 
     return (
-        <Box>
+        <Card>
             <Tabs
                 value={tab}
                 onChange={(_, value) => changeTab(value)}
@@ -26,7 +26,7 @@ const OrganizationContainer = () => {
                 <SubjectSection />
                 <MembersList />
             </SwipeableViews>
-        </Box>
+        </Card>
     );
 }
 

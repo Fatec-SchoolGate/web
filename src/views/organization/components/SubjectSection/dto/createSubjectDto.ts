@@ -3,4 +3,5 @@ export type CreateSubjectDto = {
     description?: string;
     displayImage?: File | null;
     backgroundImage?: File | null;
+    organizationId: string;
 }

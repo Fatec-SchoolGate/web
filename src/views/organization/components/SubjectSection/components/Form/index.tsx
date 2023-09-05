@@ -1,5 +1,5 @@
 import { Drawer } from "@mui/material";
-import Apollo from "./Apollo";
+import Apollo from "./apollo";
 import { useSubjectSectionStore } from "../../store";
 
 const Form = () => {
