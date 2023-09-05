@@ -33,5 +33,8 @@
   "profile": "Perfil",
   "subject": "Matéria",
   "noSubjects": "Sem matérias",
-  "description": "Descrição"
+  "description": "Descrição",
+  "subjects": "Matérias",
+  "members": "Membros",
+  "classesTimes": "Horários de aulas"
 }
