@@ -36,5 +36,7 @@
   "description": "Descrição",
   "subjects": "Matérias",
   "members": "Membros",
-  "classesTimes": "Horários de aulas"
+  "classesTimes": "Horários de aulas",
+  "endTime": "Até",
+  "startTime": "Das"
 }

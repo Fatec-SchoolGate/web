@@ -36,5 +36,7 @@
   "yourOrganizations": "Your organizations",
   "subjects": "Subjects",
   "members": "Members",
-  "classesTimes": "Classes Times"
+  "classesTimes": "Classes Times",
+  "startTime": "Start",
+  "endTime": "End"
 }
