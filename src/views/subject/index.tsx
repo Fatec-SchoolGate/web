@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import SwipeableViews from "react-swipeable-views";
 import Header from "./components/header";
-import ClassSection from "./components/class-section";
+import ScheduleSection from "./components/schedule-section";
 
 const SubjectContainer = () => {
     const [tabValue, setTabValue] = useState<any>(0);
@@ -36,7 +36,7 @@ const SubjectContainer = () => {
                 index={tabValue}
                 onChange={(index) => changeTab(null, index)}
             >
-                <ClassSection/>
+                <ScheduleSection/>
             </SwipeableViews>
         </Card>
     );
