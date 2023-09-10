@@ -21,7 +21,7 @@ const Apollo = () => {
         name: subject?.name ?? "",
         organizationId: organizationId as string
     };
-    console.log(defaultValues);
+    
     return (
         <Logic
             defaultValues={defaultValues}
