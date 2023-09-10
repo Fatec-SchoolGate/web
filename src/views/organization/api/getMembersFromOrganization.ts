@@ -8,6 +8,6 @@ interface Response {
 
 const getMembersFromOrganization = (organizationId: string) => api.get<Response>(`organization-users/get-members/${organizationId}`);
 
-export const useMembersFromOrganization = (organizationId: string | undefined) => useQuery(["organization/members", organizationId!], () => getMembersFromOrganization(organizationId), {
+export const useMembersFromOrganization = (organizationId: string | undefined) => useQuery(["organization/members", organizationId!], () => getMembersFromOrganization(organizationId!), {
     enabled: !!organizationId
 });
