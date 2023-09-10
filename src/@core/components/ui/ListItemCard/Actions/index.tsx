@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Actions = (props: Props) => {
-    const { previewUrl, id } = props;
+    const { previewUrl } = props;
     const { t } = useTranslation();
 
     return (

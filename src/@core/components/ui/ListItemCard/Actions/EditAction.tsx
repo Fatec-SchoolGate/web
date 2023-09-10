@@ -8,7 +8,9 @@ const EditAction = () => {
     const { t } = useTranslation();
 
     const { id, onEditClick } = useContext(ListItemCardContext); 
-        
+
+    if (!onEditClick) return null;
+
     return (
         <MenuItem
             onClick={() => onEditClick && onEditClick(id)}
