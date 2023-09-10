@@ -1,7 +1,7 @@
 import { Box, Card, Chip, List, Typography } from "@mui/material";
 import SubInformation, { SubInformationProps } from "./SubInformation";
 import Actions from "./Actions";
-import { createContext } from "react";
+import { ReactNode, createContext } from "react";
 
 interface ListItemCardState {
     id?: any;
@@ -16,6 +16,7 @@ interface Props {
     subInformations?: SubInformationProps[];
     previewUrl?: string;
     onEditClick?: (id: any) => void;
+    CustomActions?: ReactNode;
 }
 
 const ListItemCard = (props: Props) => {
@@ -24,7 +25,8 @@ const ListItemCard = (props: Props) => {
         title,
         subInformations,
         previewUrl,
-        onEditClick
+        onEditClick,
+        CustomActions
     } = props;
 
     return (
@@ -64,7 +66,8 @@ const ListItemCard = (props: Props) => {
                                 label={"Member"}
                             />
                         </Box>
-                        <Actions 
+                        <Actions
+                            CustomActions={CustomActions}
                             previewUrl={previewUrl}
                         />
                     </Box>

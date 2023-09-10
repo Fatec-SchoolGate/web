@@ -3,13 +3,15 @@ import { Box, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ThreeDotsButton from "./ThreeDotsButton";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface Props {
+    CustomActions?: ReactNode;
     previewUrl?: string;
 }
 
 const Actions = (props: Props) => {
-    const { previewUrl } = props;
+    const { previewUrl, CustomActions } = props;
     const { t } = useTranslation();
 
     return (
@@ -20,6 +22,7 @@ const Actions = (props: Props) => {
                 gap: 3
             }}
         >
+            {CustomActions}
             {previewUrl && (
                 <Button
                     component={Link}
