@@ -1,7 +1,7 @@
-import ListItemCard from "@/@core/components/ui/ListItemCard";
 import { useSchedules } from "@/views/subject/api/get-schedules";
 import { Box } from "@mui/material";
 import { useRouter } from "next/router";
+import ScheduleCard from "./schedule-card";
 
 const List = () => {
 
@@ -13,10 +13,10 @@ const List = () => {
     return (
         <Box>
             {schedules.map((schedule) => (
-                <ListItemCard
-                    id={schedule.id}
+                <ScheduleCard
+                    startTime={schedule.startTime}
+                    endTime={schedule.endTime}
                     key={schedule.id}
-                    title={`${schedule.startTime}-${schedule.endTime}`}
                 />
             ))}
         </Box>
