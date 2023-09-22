@@ -8,7 +8,7 @@ import breakpoints from './breakpoints'
 import overrides from './overrides'
 import { useSettingsStore } from '../stores/settingsStore'
 
-const themeOptions = (): ThemeOptions => {
+const themeOptions = (customMode?: "dark" | "light"): ThemeOptions => {
 
   const {
     mode
@@ -17,7 +17,7 @@ const themeOptions = (): ThemeOptions => {
   const theme: ThemeOptions = {
     breakpoints: breakpoints(),
     components: overrides(),
-    palette: palette(mode),
+    palette: palette(customMode ?? mode),
     ...spacing,
     shape: {
       borderRadius: 6

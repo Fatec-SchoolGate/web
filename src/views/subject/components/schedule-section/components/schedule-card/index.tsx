@@ -6,10 +6,11 @@ import FaceRecognitionButton from "./face-recognition-button";
 interface Props {
     startTime: string;
     endTime: string;
+    id: string;
 }
 
 const ScheduleCard = (props: Props) => {
-    const { startTime, endTime } = props;
+    const { startTime, endTime, id } = props;
 
     return (
         <Card
@@ -36,7 +37,7 @@ const ScheduleCard = (props: Props) => {
                 }}
             >
                 <FaceRecognitionButton/>
-                <QrCodeButton/>
+                <QrCodeButton subjectId={id}/>
             </Box>
         </Card>
     );

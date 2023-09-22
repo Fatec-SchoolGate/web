@@ -17,6 +17,7 @@ const List = () => {
                     startTime={schedule.startTime}
                     endTime={schedule.endTime}
                     key={schedule.id}
+                    id={schedule.id}
                 />
             ))}
         </Box>
