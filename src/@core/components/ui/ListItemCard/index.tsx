@@ -77,10 +77,11 @@ const ListItemCard = (props: Props) => {
                             flexWrap: "wrap"
                         }}
                     >
-                        {subInformations?.map((subInformation) => (
+                        {subInformations?.map((subInformation, key) => (
                             <SubInformation
                                 icon={subInformation.icon}
                                 text={subInformation.text}
+                                key={key}
                             />
                         ))}
                     </List>
