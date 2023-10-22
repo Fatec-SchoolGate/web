@@ -38,5 +38,8 @@
   "members": "Members",
   "classesTimes": "Classes Times",
   "startTime": "Start",
-  "endTime": "End"
+  "endTime": "End",
+  "loadingMembers": "Loading members",
+  "addMembers": "Add members",
+  "requiredUserIds": "Select at least one member"
 }

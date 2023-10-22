@@ -2,6 +2,7 @@ import { Box } from "@mui/material"
 import { useMembersFromOrganization } from "../../api/getMembersFromOrganization";
 import { useRouter } from "next/router";
 import ListItemCard from "@/@core/components/ui/ListItemCard";
+import Header from "./components/header";
 
 const MembersList = () => {
 
@@ -17,16 +18,19 @@ const MembersList = () => {
                 p: (theme) => theme.spacing(4)
             }}
         >
-            {users?.map((user) => (
-                <ListItemCard
-                    id={user.id}
-                    key={user.id}
-                    title={user.name}
-                    subInformations={[
-                        { text: user.email, icon: "ic:baseline-email" }
-                    ]}
-                />
-            ))}
+            <Header/>
+            <Box>
+                {users?.map((user) => (
+                    <ListItemCard
+                        id={user.id}
+                        key={user.id}
+                        title={user.name}
+                        subInformations={[
+                            { text: user.email, icon: "ic:baseline-email" }
+                        ]}
+                    />
+                ))}
+            </Box>
         </Box>
     );
 }

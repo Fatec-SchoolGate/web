@@ -1,9 +1,10 @@
 import { Card, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import SwipeableViews from "react-swipeable-views";
 import Header from "./components/header";
 import ScheduleSection from "./components/schedule-section";
+import SubjectBreadcrumbs from "./components/subject-breadcrumbs";
+import MembersSection from "./components/members-section";
 
 const SubjectContainer = () => {
     const [tabValue, setTabValue] = useState<any>(0);
@@ -13,32 +14,31 @@ const SubjectContainer = () => {
     const changeTab = (_: any, value: any) => setTabValue(value);
 
     return (
-        <Card
-            sx={{
-                px: (theme) => theme.spacing(5)
-            }}
-        >
-            <Header/>
-            <Tabs
-                value={tabValue}
-                onChange={changeTab}
+        <>
+            <SubjectBreadcrumbs/>
+            <Card
+                sx={{
+                    px: (theme) => theme.spacing(5)
+                }}
             >
-                <Tab
-                    value={0}
-                    label={t("classesTimes")}
-                />
-                <Tab
-                    value={1}
-                    label={t("members")}
-                />
-            </Tabs>
-            <SwipeableViews
-                index={tabValue}
-                onChange={(index) => changeTab(null, index)}
-            >
-                <ScheduleSection/>
-            </SwipeableViews>
-        </Card>
+                <Header/>
+                <Tabs
+                    value={tabValue}
+                    onChange={changeTab}
+                >
+                    <Tab
+                        value={0}
+                        label={t("classesTimes")}
+                    />
+                    <Tab
+                        value={1}
+                        label={t("members")}
+                    />
+                </Tabs>
+                {tabValue === 0 && <ScheduleSection/>}
+                {tabValue === 1 && <MembersSection/>}
+            </Card>
+        </>
     );
 }
 

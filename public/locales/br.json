@@ -38,5 +38,8 @@
   "members": "Membros",
   "classesTimes": "Horários de aulas",
   "endTime": "Até",
-  "startTime": "Das"
+  "startTime": "Das",
+  "loadingMembers": "Carregando membros",
+  "addMembers": "Adicionar membros",
+  "requiredUserIds": "Selecione pelo menos um membro"
 }

@@ -6,6 +6,7 @@ import ChipOverride from "./chip";
 import ButtonOverride from "./button";
 import ListOverride from "./list";
 import DrawerOverride from "./drawer";
+import BreadcrumbsOverride from "./breadcrumbs";
 
 const overrides = (): ThemeOptions["components"] => {
     return {
@@ -15,7 +16,8 @@ const overrides = (): ThemeOptions["components"] => {
         ...TabsOverride(),
         ...ChipOverride(),
         ...ListOverride(),
-        ...DrawerOverride()
+        ...DrawerOverride(),
+        ...BreadcrumbsOverride()
     };
 }
 

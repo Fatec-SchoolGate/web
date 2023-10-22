@@ -1,6 +1,5 @@
-import { Box, Card, Tab, Tabs } from "@mui/material";
+import { Card, Tab, Tabs } from "@mui/material";
 import SubjectSection from "./components/SubjectSection";
-import SwipeableViews from "react-swipeable-views";
 import MembersList from "./components/members";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
@@ -22,10 +21,8 @@ const OrganizationContainer = () => {
                 <Tab value={0} label={t("subjects")} />
                 <Tab value={1} label={t("members")} />
             </Tabs>
-            <SwipeableViews index={tab} onChangeIndex={changeTab}>
-                <SubjectSection />
-                <MembersList />
-            </SwipeableViews>
+            {tab === 0 && <SubjectSection/>}
+            {tab === 1 && <MembersList/>}
         </Card>
     );
 }
