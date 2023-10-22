@@ -1,16 +1,16 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Icon } from "@iconify/react";
 import { Box, Drawer, IconButton, Typography } from "@mui/material";
+import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useMembersSection } from "../../store";
-import { FormProvider, useForm } from "react-hook-form";
+import { AddMembersFormDto } from "../../dto/add-members-dto";
 import Apollo from "./apollo";
-import { Icon } from "@iconify/react";
-import { AddMembersDto } from "../dto/add-members-dto";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { addMembersSchema } from "./schema";
 
 const Form = () => {
-    const form = useForm<AddMembersDto>({
-        resolver: yupResolver(addMembersSchema)
+    const form = useForm<AddMembersFormDto>({
+        resolver: yupResolver<AddMembersFormDto>(addMembersSchema)
     });
 
     const { t } = useTranslation();

@@ -41,5 +41,13 @@
   "startTime": "Das",
   "loadingMembers": "Carregando membros",
   "addMembers": "Adicionar membros",
-  "requiredUserIds": "Selecione pelo menos um membro"
+  "requiredUserIds": "Selecione pelo menos um membro",
+  "addMembersError": "Ocorreu um erro ao adicionar os usuários",
+  "addMembersSuccess": "Usuários adicionados à organização",
+  "addingMembers": "Adicionando usuários",
+  "noUsersFound": "Nenhum usuário encontrado",
+  "remove": "Remover",
+  "userRemovalSuccess": "Usuário removido",
+  "userRemovalError": "Erro ao remover o usuário",
+  "userRemovalLoading": "Removendo o usuário"
 }

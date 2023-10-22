@@ -25,7 +25,7 @@ const MembersSelect = (props: Props) => {
 	const { data: response, isLoading } = useNonMembers(organizationId! as string);
 
 	const nonMembers = response?.data.nonMembers ?? [];
-	
+
 	return (
 		<Controller
 			name={name}
@@ -39,8 +39,9 @@ const MembersSelect = (props: Props) => {
 					options={nonMembers}
 					loading={isLoading}
 					loadingText={t("loadingMembers")}
-					onChange={(_, tags) => {
-						onChange(tags.map((tag) => tag));
+					noOptionsText={t("noUsersFound")}
+					onChange={(_, members) => {
+						onChange(members.map((member) => member.id));
 					}}
 					getOptionLabel={(option) => option.name}
 					renderInput={(params) => (

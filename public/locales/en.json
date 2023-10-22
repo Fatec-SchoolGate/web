@@ -41,5 +41,13 @@
   "endTime": "End",
   "loadingMembers": "Loading members",
   "addMembers": "Add members",
-  "requiredUserIds": "Select at least one member"
+  "requiredUserIds": "Select at least one member",
+  "addMembersError": "Failed to add members",
+  "addMembersSuccess": "Members added with success",
+  "addingMembers": "Adding members",
+  "noUsersFound": "No users found",
+  "remove": "Remove",
+  "userRemovalSuccess": "User removed",
+  "userRemovalError": "Failed to remove the user",
+  "userRemovalLoading": "Removing the user"
 }

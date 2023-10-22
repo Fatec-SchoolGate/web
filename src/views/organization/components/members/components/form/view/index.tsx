@@ -5,7 +5,10 @@ const View = () => {
     return (
         <Box
             sx={{
-                p: (theme) => theme.spacing(4)
+                p: (theme) => theme.spacing(4),
+                display: "flex",
+                flexDirection: "column",
+                gap: 2
             }}
         >
             <MembersSelect name={"userIds"}/>

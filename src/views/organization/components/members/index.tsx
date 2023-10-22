@@ -3,6 +3,7 @@ import { useMembersFromOrganization } from "../../api/getMembersFromOrganization
 import { useRouter } from "next/router";
 import ListItemCard from "@/@core/components/ui/ListItemCard";
 import Header from "./components/header";
+import ListCard from "./components/list-card";
 
 const MembersList = () => {
 
@@ -20,14 +21,10 @@ const MembersList = () => {
         >
             <Header/>
             <Box>
-                {users?.map((user) => (
-                    <ListItemCard
-                        id={user.id}
+                {users.map((user) => (
+                    <ListCard
+                        user={user}
                         key={user.id}
-                        title={user.name}
-                        subInformations={[
-                            { text: user.email, icon: "ic:baseline-email" }
-                        ]}
                     />
                 ))}
             </Box>
