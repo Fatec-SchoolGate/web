@@ -1,35 +1,21 @@
-import { Box } from "@mui/material"
-import { useMembersFromOrganization } from "../../api/getMembersFromOrganization";
-import { useRouter } from "next/router";
-import ListItemCard from "@/@core/components/ui/ListItemCard";
+import { Box } from "@mui/material";
 import Header from "./components/header";
-import ListCard from "./components/list-card";
+import MembersList from "./components/list";
 
-const MembersList = () => {
-
-    const router = useRouter();
-    const { organizationId } = router.query;
-
-    const { data: response, isLoading } = useMembersFromOrganization(organizationId as string);
-    const users = response?.data?.users ?? [];
-
+const Members = () => {
     return (
         <Box
             sx={{
-                p: (theme) => theme.spacing(4)
+                p: (theme) => theme.spacing(4),
+                display: "flex",
+                flexDirection: "column",
+                gap: 4
             }}
         >
             <Header/>
-            <Box>
-                {users.map((user) => (
-                    <ListCard
-                        user={user}
-                        key={user.id}
-                    />
-                ))}
-            </Box>
+            <MembersList/>
         </Box>
     );
 }
 
-export default MembersList;
+export default Members;
