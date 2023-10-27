@@ -22,7 +22,7 @@ const SubjectContainer = () => {
                 }}
             >
                 <Header/>
-                <Tabs
+                {/* <Tabs
                     value={tabValue}
                     onChange={changeTab}
                 >
@@ -34,9 +34,9 @@ const SubjectContainer = () => {
                         value={1}
                         label={t("members")}
                     />
-                </Tabs>
+                </Tabs> */}
                 {tabValue === 0 && <ScheduleSection/>}
-                {tabValue === 1 && <MembersSection/>}
+                {/* {tabValue === 1 && <MembersSection/>} */}
             </Card>
         </>
     );

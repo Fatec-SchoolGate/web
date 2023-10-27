@@ -49,5 +49,12 @@
   "remove": "Remove",
   "userRemovalSuccess": "User removed",
   "userRemovalError": "Failed to remove the user",
-  "userRemovalLoading": "Removing the user"
+  "userRemovalLoading": "Removing the user",
+  "sunday": "Sunday",
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday"
 }

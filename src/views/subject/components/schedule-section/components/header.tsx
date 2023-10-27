@@ -1,5 +1,5 @@
 import { useClassStore } from "@/views/subject/store";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Form from "./form";
 
@@ -12,10 +12,13 @@ const Header = () => {
         <Box
             sx={{
                 display: "flex",
-                justifyContent: "flex-end",
-                p: (theme) => theme.spacing(4)
+                justifyContent: "space-between",
+                p: 4
             }}
         >
+            <Typography variant={"h4"}>
+                {t("classesTimes")}
+            </Typography>
             <Button
                 variant={"contained"}
                 onClick={openForm}
