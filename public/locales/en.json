@@ -49,5 +49,8 @@
   "remove": "Remove",
   "userRemovalSuccess": "User removed",
   "userRemovalError": "Failed to remove the user",
-  "userRemovalLoading": "Removing the user"
+  "userRemovalLoading": "Removing the user",
+  "createScheduleSuccess": "Schedule created",
+  "createScheduleError": "Error when creating the schedule",
+  "createScheduleLoading": "Creating schedule"
 }

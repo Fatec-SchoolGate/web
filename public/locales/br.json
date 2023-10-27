@@ -49,5 +49,8 @@
   "remove": "Remover",
   "userRemovalSuccess": "Usuário removido",
   "userRemovalError": "Erro ao remover o usuário",
-  "userRemovalLoading": "Removendo o usuário"
+  "userRemovalLoading": "Removendo o usuário",
+  "createScheduleSuccess": "Aula criada com sucesso",
+  "createScheduleError": "Erro ao criar aula",
+  "createScheduleLoading": "Criando aula"
 }
