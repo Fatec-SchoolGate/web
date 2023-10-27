@@ -56,5 +56,8 @@
   "wednesday": "Quarta",
   "thursday": "Quinta",
   "friday": "Sexta",
-  "saturday": "Sábado"
+  "saturday": "Sábado",
+  "createScheduleSuccess": "Aula criada com sucesso",
+  "createScheduleError": "Erro ao criar aula",
+  "createScheduleLoading": "Criando aula"
 }
