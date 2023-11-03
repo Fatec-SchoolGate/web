@@ -1,3 +1,5 @@
+import { SubjectDto } from "@/views/organization/components/SubjectSection/dto/subjectDto";
+
 export interface ScheduleDto {
     id: string;
     subjectId: string;
@@ -14,4 +16,5 @@ export interface ScheduleDto {
     endTime: string;
     createdAt: string;
     updatedAt: string;
+    subject?: SubjectDto;
 }

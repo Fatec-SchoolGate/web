@@ -2,28 +2,8 @@ import { ScheduleDto } from "@/views/subject/dto/schedule.dto";
 import { Card, Typography, styled } from "@mui/material"
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-
-const DayTypography = styled(Typography)(({ theme }) => ({
-    fontSize: 0,
-    flex: 0,
-    maxWidth: "fit-content",
-    position: "relative",
-    "&[aria-selected=true]": {
-        color: theme.palette.primary.main,
-        "&:after": {
-            content: '"•"',
-            width: "fit-content",
-            position: "absolute",
-            top: -10,
-            left: "50%",
-            transform: "translate(-50%)",
-            fontSize: 16
-        }
-    },
-    "&:first-letter": {
-        fontSize: 16
-    }
-}));
+import DayTypography from "./day-typography";
+import Link from "next/link";
 
 interface ScheduleItemProps {
     schedule: ScheduleDto;
@@ -36,17 +16,25 @@ const ScheduleItem = (props: ScheduleItemProps) => {
     const { schedule } = props;
 
     const router = useRouter();
-
+    
     return (
         <Card
             variant={"outlined"}
-            // onClick={() => router.push(`/schedules/${id}`)}
+            component={Link}
+            href={`${router.asPath}/schedule/${schedule.id}`}
             sx={{
                 p: 4,
+                textDecoration: "none",
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: {
+                    xs: "column",
+                    sm: "row"
+                },
                 justifyContent: "space-between",
-                alignItems: "center"
+                alignItems: {
+                    xs: "flex-start",
+                    sm: "center"
+                }
             }}
         >
             <div>
@@ -61,13 +49,13 @@ const ScheduleItem = (props: ScheduleItemProps) => {
                     gap: 4
                 }}
             >
-                <DayTypography aria-selected>{t("sunday")}</DayTypography>
-                <DayTypography aria-selected>{t("monday")}</DayTypography>
-                <DayTypography>{t("tuesday")}</DayTypography>
-                <DayTypography>{t("wednesday")}</DayTypography>
-                <DayTypography>{t("thursday")}</DayTypography>
-                <DayTypography>{t("friday")}</DayTypography>
-                <DayTypography>{t("saturday")}</DayTypography>
+                <DayTypography label={`${t("sunday")}`} selected={schedule.sunday}/>
+                <DayTypography label={`${t("monday")}`} selected={schedule.monday} />
+                <DayTypography label={`${t("tuesday")}`} selected={schedule.tuesday} />
+                <DayTypography label={`${t("wednesday")}`} selected={schedule.wednesday} />
+                <DayTypography label={`${t("thursday")}`} selected={schedule.thursday} />
+                <DayTypography label={`${t("friday")}`} selected={schedule.friday} />
+                <DayTypography label={`${t("saturday")}`} selected={schedule.saturday} />
             </div>
         </Card>
     );

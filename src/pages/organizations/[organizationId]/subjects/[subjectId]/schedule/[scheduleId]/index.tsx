@@ -1,9 +1,7 @@
+import ScheduleContainer from "@/views/schedule";
+
 const SchedulePage = () => {
-    return (
-        <div>
-            schedule page
-        </div>
-    );
+    return <ScheduleContainer/>;
 }
 
 export default SchedulePage;

@@ -1,3 +1,4 @@
+import LogoIcon from "@/@core/components/logo";
 import { useDefaultLayoutStore } from "@/@core/stores/defaultLayoutStore";
 import { useSettingsStore } from "@/@core/stores/settingsStore";
 import { Icon } from "@iconify/react";
@@ -25,7 +26,18 @@ const DrawerHeader = () => {
                 padding: 5
             }}
         >
-            <Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 4
+                }}
+            >
+                <LogoIcon
+                    width={25}
+                    height={25}
+                />
                 <Typography
                     variant={"h3"}
                 >

@@ -59,5 +59,8 @@
   "saturday": "Sábado",
   "createScheduleSuccess": "Aula criada com sucesso",
   "createScheduleError": "Erro ao criar aula",
-  "createScheduleLoading": "Criando aula"
+  "createScheduleLoading": "Criando aula",
+  "date": "Data",
+  "attendances": "Quantidade de presenças",
+  "seeUsers": "Ver usuários"
 }

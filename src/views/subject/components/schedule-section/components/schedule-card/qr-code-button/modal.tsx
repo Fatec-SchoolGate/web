@@ -20,7 +20,7 @@ const QrCodeModal = () => {
     useEffect(() => {
         if (!scheduleId) return;
         console.log(scheduleId);
-        const eventSource = new EventSource(`${process.env.NEXT_PUBLIC_URL}/schedule-users/generate-attendance-token-stream/${scheduleId}`);
+        const eventSource = new EventSource(`${process.env.NEXT_PUBLIC_URL}/attendances/generate-attendance-token-stream/${scheduleId}`);
         eventSource.onmessage = (stream) => {
             const { data } = stream;
 

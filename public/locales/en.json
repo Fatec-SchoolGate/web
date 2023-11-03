@@ -57,8 +57,10 @@
   "thursday": "Thursday",
   "friday": "Friday",
   "saturday": "Saturday",
-  "userRemovalLoading": "Removing the user",
   "createScheduleSuccess": "Schedule created",
   "createScheduleError": "Error when creating the schedule",
-  "createScheduleLoading": "Creating schedule"
+  "createScheduleLoading": "Creating schedule",
+  "date": "Date",
+  "attendances": "Attendances count",
+  "seeUsers": "See users"
 }

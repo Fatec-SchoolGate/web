@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.2.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@mui/x-data-grid": "^6.17.0",
     "@mui/x-date-pickers": "^6.12.1",
     "@types/node": "20.4.6",
     "@types/react": "18.2.18",
@@ -26,6 +27,7 @@
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
     "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
     "next": "13.4.12",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
+    "@types/lodash": "^4.14.200",
     "@types/nprogress": "^0.2.0",
     "@types/react-swipeable-views": "^0.13.2"
   }
