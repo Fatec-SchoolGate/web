@@ -16,6 +16,7 @@ const AppBarActions = () => {
                 flex: 1,
                 display: "flex",
                 flexDirection: "row",
+                justifyContent: "flex-end",
                 alignItems: "center"
             }}
         >
@@ -27,7 +28,7 @@ const AppBarActions = () => {
                     icon={mode === "dark" ? "material-symbols:dark-mode-outline" : "material-symbols:light-mode-outline"}
                 />
             </IconButton>
-            <IconButton>
+            {/* <IconButton>
                 <Icon
                     icon={"uil:create-dashboard"}
                 />
@@ -36,7 +37,7 @@ const AppBarActions = () => {
                 <Icon
                     icon={"mi:notification"}
                 />
-            </IconButton>
+            </IconButton> */}
             <ActionAvatar/>
         </Box>
     );
