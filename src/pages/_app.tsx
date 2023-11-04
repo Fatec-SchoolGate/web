@@ -14,6 +14,7 @@ import { Toaster } from 'react-hot-toast';
 
 import "../configs/i18n";
 import "../styles/global.css";
+import LoadingSpinner from '@/@core/components/ui/loading-spinner';
 
 const App = ({ Component, pageProps }: AppLayoutProps) => {
 
@@ -43,6 +44,7 @@ const App = ({ Component, pageProps }: AppLayoutProps) => {
 				<Toaster
 					position={"bottom-center"}
 				/>
+				<LoadingSpinner/>
 				<Middlewares
 					authGuard={Component?.authGuard ?? true}
 					guestGuard={Component?.guestGuard ?? false}

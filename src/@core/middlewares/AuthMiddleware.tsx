@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useAuthStore } from "../stores/authStore";
 import { useRefreshToken } from "../api/refreshToken/refreshToken";
 import api from "@/configs/api";
-import LoadingSpinner from "../components/ui/LoadingSpinner";
+import LoadingSpinner from "../components/ui/loading-spinner";
 import { useRouter } from "next/router";
 import { DEFAULT_AUTH_ROUTE, DEFAULT_GUEST_ROUTE } from "../constants/routes";
 
@@ -45,7 +45,7 @@ const AuthMiddleware = (props: Props) => {
         }
     }, []);
     
-    if (loading) return <LoadingSpinner/>;
+    if (loading) return null;
     return children;
 }
 
