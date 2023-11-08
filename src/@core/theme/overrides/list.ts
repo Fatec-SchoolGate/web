@@ -8,14 +8,14 @@ const ListOverride = (): ThemeOptions["components"] => ({
                     width: theme.spacing(1)
                 },
                 '&::-webkit-scrollbar-track': {
-                    backgroundColor: theme.palette.customColors.bodyBg
+                    backgroundColor: theme.palette.background.default
                 },
                 '&::-webkit-scrollbar-thumb': {
-                    backgroundColor: theme.palette.customColors.bodyBgAccent
+                    backgroundColor: theme.palette.background.paper
                 },
                 "&.MuiMenu-list": {
                     padding: theme.spacing(2),
-                    backgroundColor: theme.palette.customColors.bodyBg,
+                    backgroundColor: theme.palette.background.default
                 }
             })
         }

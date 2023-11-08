@@ -32,7 +32,7 @@ const DrawerGroup = (props: NavigationItem & { children: NavigationItem[] }) => 
                         mx: (theme) => theme.spacing(3.5),
                         height: (theme) => theme.spacing(9),
 
-                        backgroundColor: (theme) => open ? theme.palette.customColors.bodyBgAccent : theme.palette.background.paper,
+                        backgroundColor: (theme) => open ? theme.palette.background.default : theme.palette.background.paper,
                     }}
                 >
                     {icon && (

@@ -1,12 +1,12 @@
 // ** React Imports
-import { ReactNode } from 'react'
+import { ReactNode, useMemo } from 'react'
 
 // ** MUI Imports
 import CssBaseline from '@mui/material/CssBaseline'
 import GlobalStyles from '@mui/material/GlobalStyles'
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles'
 
-import themeOptions from './themeOptions'
+import useThemeOptions from './use-theme-options'
 
 import GlobalStyling from './globalStyles'
 
@@ -17,9 +17,13 @@ interface Props {
 const ThemeContainer = (props: Props) => {
   const { children } = props;
 
-  let theme = createTheme(themeOptions());
+  const palette = useThemeOptions();
 
-  theme = responsiveFontSizes(theme);
+  const theme = useMemo(() => {
+    let theme = createTheme(palette);
+  
+    return responsiveFontSizes(theme);
+  }, [palette]);
 
   return (
     <ThemeProvider theme={theme}>

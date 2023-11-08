@@ -39,7 +39,7 @@ const ActionLanguage = () => {
                 MenuListProps={{
                     sx: {
                         padding: (theme) => theme.spacing(2),
-                        backgroundColor: (theme) => theme.palette.customColors.bodyBg
+                        backgroundColor: (theme) => theme.palette.background.default
                     }
                 }}
             >

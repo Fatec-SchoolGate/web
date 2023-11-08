@@ -1,6 +1,7 @@
 import { Box, Skeleton, Typography } from "@mui/material";
-import { useScheduleId } from "../utils/use-schedule-id";
-import { useSchedule } from "../api/get-schedule";
+import { useScheduleId } from "../../utils/use-schedule-id";
+import { useSchedule } from "../../api/get-schedule";
+import QrCode from "./qr-code";
 
 const Header = () => {
     const scheduleId = useScheduleId();
@@ -20,7 +21,10 @@ const Header = () => {
         <Box
             sx={{
                 px: 4,
-                py: 8
+                py: 8,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between"
             }}
         >
             <Typography
@@ -28,6 +32,9 @@ const Header = () => {
             >
                 {schedule?.subject?.name} • {schedule?.startTime} - {schedule?.endTime}
             </Typography>
+            <Box>
+                <QrCode/>
+            </Box>
             {/* {schedule?.subjectId && <QrCodeButton subjectId={schedule?.subjectId} />}
             <QrCodeModal/> */}
         </Box>

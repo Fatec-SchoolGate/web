@@ -9,14 +9,14 @@ export const useColumns = (): GridColDef[] => {
 		{
 			field: "date",
 			headerName: `${t("date")}`,
-			flex: 2,
+			flex: 4,
 			minWidth: 150
 		},
 		{
 			field: "attendances",
 			headerName: `${t("attendances")}`,
-			flex: 2,
-			minWidth: 150,
+			flex: 1,
+			minWidth: 50,
 			align: "right",
 			renderCell: (params) => {
 				const { row } = params;

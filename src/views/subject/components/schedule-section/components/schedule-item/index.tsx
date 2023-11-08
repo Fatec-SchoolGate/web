@@ -39,7 +39,7 @@ const ScheduleItem = (props: ScheduleItemProps) => {
         >
             <div>
                 <Typography fontSize={20}>
-                        {schedule.startTime} - {schedule.endTime}
+                    {schedule.startTime} - {schedule.endTime}
                 </Typography>
             </div>
             <div

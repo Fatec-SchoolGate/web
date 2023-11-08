@@ -23,6 +23,7 @@
     "dayjs": "^1.11.9",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "event-source-polyfill": "^1.0.31",
     "framer-motion": "^10.16.4",
     "i18next": "^23.4.1",
     "i18next-browser-languagedetector": "^7.1.0",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
+    "@types/event-source-polyfill": "^1.0.3",
     "@types/lodash": "^4.14.200",
     "@types/nprogress": "^0.2.0",
     "@types/react-swipeable-views": "^0.13.2"

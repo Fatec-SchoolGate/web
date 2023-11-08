@@ -28,7 +28,7 @@ const Actions = (props: Props) => {
                     component={Link}
                     href={previewUrl}
                     variant={"contained"}
-                    color={"inherit"}
+                    // color={"inherit"}
                     startIcon={(
                         <Icon
                             icon={"mdi:eye-outline"}

@@ -62,5 +62,6 @@
   "createScheduleLoading": "Criando aula",
   "date": "Data",
   "attendances": "Quantidade de presenças",
-  "seeUsers": "Ver usuários"
+  "seeUsers": "Ver usuários",
+  "showingNofNUsers": "Mostrando de {{fromRow}} até {{toRow}} de {{rowCount}}"
 }

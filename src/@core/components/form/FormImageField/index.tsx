@@ -71,7 +71,7 @@ const FormImageField = (props: Props) => {
                     backgroundRepeat: "no-repeat",
                 }),
                 position: "relative",
-                backgroundColor: (theme) => theme.palette.customColors.bodyBgAccent,
+                backgroundColor: (theme) => theme.palette.background.default,
             }}
         >
             {base64Image && (

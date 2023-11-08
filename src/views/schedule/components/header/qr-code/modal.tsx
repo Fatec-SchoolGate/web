@@ -2,17 +2,25 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Box, Dialog, IconButton, Skeleton, ThemeProvider, createTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
-import { useScheduleStore } from "../../../store";
-import palettes from "@/@core/theme/palettes";
+import { EventSourcePolyfill } from "event-source-polyfill";
 import useThemeOptions from "@/@core/theme/use-theme-options";
+import { useScheduleId } from "@/views/schedule/utils/use-schedule-id";
+import { useAuthStore } from "@/@core/stores/authStore";
 
-const QrCodeModal = () => {
+interface QrCodeModalProps {
+    open: boolean;
+    onClose: () => void;
+}
+
+const QrCodeModal = (props: QrCodeModalProps) => {
+    const { open, onClose } = props;
+
+    const { accessToken } = useAuthStore();
+
     const [fullScreen, setFullScreen] = useState(false);
     const [attendanceToken, setAttendanceToken] = useState<string | null>(null);
 
-    const { qrCodeModal, closeQrCodeModal } = useScheduleStore();
-
-    const { scheduleId } = useScheduleStore();
+    const scheduleId = useScheduleId();
 
     const toggleFullScreen = () => setFullScreen(!fullScreen);
 
@@ -21,32 +29,37 @@ const QrCodeModal = () => {
     const lightTheme = createTheme(currentTheme);
 
     useEffect(() => {
-        if (!scheduleId) return;
-        console.log(scheduleId);
-        const eventSource = new EventSource(`${process.env.NEXT_PUBLIC_URL}/attendances/generate-attendance-token-stream/${scheduleId}`);
+        if (!scheduleId || !accessToken) return;
+
+        const eventSource = new EventSourcePolyfill(`${process.env.NEXT_PUBLIC_URL}/attendances/generate-attendance-token-stream/${scheduleId}`, {
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        });
+
         eventSource.onmessage = (stream) => {
             const { data } = stream;
 
             const decodedData = JSON.parse(data);
             const attendanceToken = decodedData?.attendanceToken ?? null;
-            console.log(attendanceToken);
+            
             setAttendanceToken(attendanceToken);
         }
 
         return () => {
             eventSource.close();
         }
-    }, [scheduleId]);
+    }, [scheduleId, accessToken]);
 
     useEffect(() => {
-        if (!qrCodeModal) setAttendanceToken(null);
-    }, [qrCodeModal]);
+        if (!open) setAttendanceToken(null);
+    }, [open]);
 
     return (
         <ThemeProvider theme={lightTheme}>
             <Dialog
-                open={qrCodeModal}
-                onClose={closeQrCodeModal}
+                open={open}
+                onClose={onClose}
                 fullScreen={fullScreen}
             >
                 <Box
@@ -91,7 +104,6 @@ const QrCodeModal = () => {
                             height={256}
                         />
                     )}
-                    {/* <span>{attendanceToken}</span> */}
                 </Box>
             </Dialog>
         </ThemeProvider>
