@@ -64,7 +64,7 @@ export const defaultPalette: Partial<Palette> = {
         secondary: alpha(hexToRgb(backgroundContrastColor), 0.68),
         disabled: alpha(hexToRgb(backgroundContrastColor), 0.42)
     },
-    divider: `rgba(${backgroundContrastColor}, 0.16)`,
+    divider: alpha(hexToRgb(backgroundContrastColor), 0.16),
     background: {
         paper: "#2F3649",
         default: "#25293C"
