@@ -6,4 +6,5 @@ export interface OrganizationDto {
     description?: string;
     createdAt?: string;
     updatedAt?: string;
+    userRole?: "member" | "manager" | "owner";
 }

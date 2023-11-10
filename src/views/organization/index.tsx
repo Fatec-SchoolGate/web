@@ -1,31 +1,35 @@
-import { Card, Tab, Tabs } from "@mui/material";
-import SubjectSection from "./components/SubjectSection";
-import Members from "./components/members";
-import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useOrganization } from "./api/get-organization";
+import MemberContainer from "./components/member-container";
+import OwnerContainer from "./components/owner-container";
+import { CircularProgress } from "@mui/material";
+import Loading from "./components/loading.";
+import OrganizationHeader from "./components/organization-header";
 
 const OrganizationContainer = () => {
 
-    const [tab, setTab] = useState(0);
+    const router = useRouter();
+    const { organizationId } = router.query;
 
-    const { t } = useTranslation();
+    const { data: response, isLoading } = useOrganization(organizationId as string);
+    const organization = response?.data.organization;
 
-    const changeTab = (index: number) => setTab(index);
+    if (!isLoading && !organization) router.replace("/organizations");
+
+    if (isLoading) return <Loading/>;
 
     return (
-        <Card>
-            <Tabs
-                indicatorColor={"secondary"}
-                textColor={"secondary"}
-                value={tab}
-                onChange={(_, value) => changeTab(value)}
-            >
-                <Tab value={0} label={t("subjects")} />
-                <Tab value={1} label={t("members")} />
-            </Tabs>
-            {tab === 0 && <SubjectSection/>}
-            {tab === 1 && <Members/>}
-        </Card>
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem"
+            }}
+        >
+            <OrganizationHeader organization={organization!}/>
+            {organization?.userRole == "owner" && (<OwnerContainer/>)}
+            {organization?.userRole == "member" && (<MemberContainer/>)}
+        </div>
     );
 }
 

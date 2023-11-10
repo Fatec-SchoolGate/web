@@ -63,5 +63,9 @@
   "date": "Data",
   "attendances": "Quantidade de presenças",
   "seeUsers": "Ver usuários",
-  "showingNofNUsers": "Mostrando de {{fromRow}} até {{toRow}} de {{rowCount}}"
+  "showingNofNUsers": "Mostrando de {{fromRow}} até {{toRow}} de {{rowCount}}",
+  "manage": "Gerente",
+  "member": "Membro",
+  "owner": "Dono",
+  "schedules": "Aulas"
 }

@@ -63,5 +63,9 @@
   "date": "Date",
   "attendances": "Attendances count",
   "seeUsers": "See users",
-  "showingNofNUsers": "Showing from {{fromRow}} to {{toRow}} of {{rowCount}}"
+  "showingNofNUsers": "Showing from {{fromRow}} to {{toRow}} of {{rowCount}}",
+  "member": "Member",
+  "owner": "Owner",
+  "manage": "Manager",
+  "schedules": "Schedules"
 }

@@ -12,7 +12,7 @@ const List = () => {
     const { subjectId } = router.query;
     const { data: response, isLoading } = useSchedules(subjectId as string);
     const schedules = response?.data.schedules ?? [];
-    console.log(schedules);
+    
     return (
         <Box
             sx={{

@@ -1,6 +1,6 @@
 import { Card } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import YourOrganizationList from "./YourOrganizations/YourOrganizationList";
+import OrganizationList from "./organization-list";
 import Header from "./Header";
 
 const OrganizationsContainer = () => {
@@ -13,7 +13,7 @@ const OrganizationsContainer = () => {
             }}
         >
             <Header/>
-            <YourOrganizationList/>
+            <OrganizationList/>
         </Card>
     );
 }

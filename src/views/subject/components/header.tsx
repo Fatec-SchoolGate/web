@@ -1,4 +1,4 @@
-import { useSubject } from "@/views/organization/components/SubjectSection/api/getSubject";
+import { useSubject } from "@/views/organization/components/owner-container/SubjectSection/api/getSubject";
 import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";

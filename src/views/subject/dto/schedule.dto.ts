@@ -1,4 +1,4 @@
-import { SubjectDto } from "@/views/organization/components/SubjectSection/dto/subjectDto";
+import { SubjectDto } from "@/views/organization/components/owner-container/SubjectSection/dto/subjectDto";
 
 export interface ScheduleDto {
     id: string;

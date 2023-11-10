@@ -5,7 +5,8 @@ const TabsOverride = (): ThemeOptions["components"] => ({
         styleOverrides: {
             root: {
                 textTransform: "none"
-            }
+            },
+            textColorPrimary: ({ theme }) => theme.palette.primary.contrastText
         },
     }    
 });

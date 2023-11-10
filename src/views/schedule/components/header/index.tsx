@@ -8,6 +8,8 @@ const Header = () => {
     const { data: response, isLoading } = useSchedule(scheduleId);
     const schedule = response?.data.schedule;
 
+    console.log(schedule);
+    
     if (isLoading) {
         return (
             <Skeleton
