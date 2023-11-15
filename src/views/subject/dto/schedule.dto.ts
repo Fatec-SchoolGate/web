@@ -16,5 +16,6 @@ export interface ScheduleDto {
     endTime: string;
     createdAt: string;
     updatedAt: string;
+    isAdmin?: boolean;
     subject?: SubjectDto;
 }

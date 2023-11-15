@@ -5,8 +5,8 @@ import { useColumns } from "./columns";
 // import { usePlans } from "../../api/get-plans";
 import Footer from "./footer";
 import Header from "./header";
-import { useScheduleGroupedAttendances } from "../../api/get-schedule-grouped-attendances";
-import { useScheduleId } from "../../utils/use-schedule-id";
+import { useScheduleGroupedAttendances } from "@/views/schedule/api/get-schedule-grouped-attendances";
+import { useScheduleId } from "@/views/schedule/utils/use-schedule-id"; 
 import { map } from "lodash";
 import AttendancesUsersTable from "./attendances-users-table";
 

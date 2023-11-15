@@ -29,14 +29,20 @@ const View = (props: Props) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: 4,
-                width: 450,
+                width: {
+                    xs: "90%",
+                    sm: "70%",
+                    md: "60%"
+                },
                 alignItems: "center",
+                maxWidth: 650,
                 m: (theme) => theme.spacing(4),
             }}
         >
             <Box>
                 <Typography
                     variant={"h1"}
+                    textAlign={"center"}
                     sx={{ mb: (theme) => theme.spacing(4) }}
                 >
                     {t("register")}

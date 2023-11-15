@@ -1,15 +1,11 @@
 import { Box, Skeleton, Typography } from "@mui/material";
-import { useScheduleId } from "../../utils/use-schedule-id";
-import { useSchedule } from "../../api/get-schedule";
 import QrCode from "./qr-code";
+import InviteButton from "./invite-button";
+import { useCurrentSchedule } from "@/views/schedule/utils/use-current-schedule";
 
 const Header = () => {
-    const scheduleId = useScheduleId();
-    const { data: response, isLoading } = useSchedule(scheduleId);
-    const schedule = response?.data.schedule;
+    const { schedule, isLoading } = useCurrentSchedule();
 
-    console.log(schedule);
-    
     if (isLoading) {
         return (
             <Skeleton
@@ -35,10 +31,9 @@ const Header = () => {
                 {schedule?.subject?.name} • {schedule?.startTime} - {schedule?.endTime}
             </Typography>
             <Box>
+                <InviteButton/>
                 <QrCode/>
             </Box>
-            {/* {schedule?.subjectId && <QrCodeButton subjectId={schedule?.subjectId} />}
-            <QrCodeModal/> */}
         </Box>
     );
 }

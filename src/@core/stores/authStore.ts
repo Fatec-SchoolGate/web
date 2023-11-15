@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { UserDto } from "../dto/userDto";
+import api from "@/configs/api";
 
 interface AuthState {
     accessToken: string | null;
@@ -9,6 +10,7 @@ interface AuthState {
     authed: boolean;
     user?: UserDto;
     setUser: (userDto: UserDto) => void;
+    logout: () => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -22,5 +24,13 @@ export const useAuthStore = create<AuthState>((set) => ({
     },
     loading: true,
     setLoading: (loading) => set(() => ({ loading })),
-    setUser: (user) => set(() => ({ user }))
+    setUser: (user) => set(() => ({ user })),
+    logout: () => {
+        localStorage.clear();
+        api.defaults.headers.common.Authorization = ``;
+        set({
+            accessToken: null,
+            authed: false
+        });
+    }
 }));

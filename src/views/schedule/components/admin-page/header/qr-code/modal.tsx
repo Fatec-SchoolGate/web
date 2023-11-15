@@ -24,9 +24,9 @@ const QrCodeModal = (props: QrCodeModalProps) => {
 
     const toggleFullScreen = () => setFullScreen(!fullScreen);
 
-    const currentTheme = useThemeOptions();
-
-    const lightTheme = createTheme(currentTheme);
+    const lightOptions = useThemeOptions("defaultPaletteLight");
+    
+    const lightTheme = createTheme(lightOptions);
 
     useEffect(() => {
         if (!scheduleId || !accessToken) return;
@@ -85,7 +85,7 @@ const QrCodeModal = (props: QrCodeModalProps) => {
                             disableRipple={false}
                             onClick={toggleFullScreen}
                         >
-                            <Icon icon={`material-symbols:${fullScreen ? "fullscreen-exit" : "fullscreen"}`}/>
+                            <Icon color={"#000"} icon={`material-symbols:${fullScreen ? "fullscreen-exit" : "fullscreen"}`}/>
                         </IconButton>
                     </Box>
                     {attendanceToken ? (

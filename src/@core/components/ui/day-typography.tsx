@@ -3,17 +3,19 @@ import { Typography } from "@mui/material"
 interface DayTypographyProps {
     label: string;
     selected?: boolean;
+    underline?: boolean;
 }
 
 const DayTypography = (props: DayTypographyProps) => {
-    const { label, selected = false } = props;
+    const { label, selected = false, underline = false } = props;
 
     return (
         <div
             style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center"
+                alignItems: "center",
+                userSelect: "none"
             }}
         >
             <Typography
@@ -23,7 +25,11 @@ const DayTypography = (props: DayTypographyProps) => {
                 •
             </Typography>
             <Typography
-                color={selected ? "primary" : "inherit"}
+                sx={{
+                    color: (theme) => selected ? theme.palette.primary.main : "inherit",
+                    borderBottom: "1px solid transparent",
+                    ...(underline && { borderColor: (theme) => selected ? theme.palette.primary.main : "inherit" })
+                }}
             >
                 {label.charAt(0)}   
             </Typography>

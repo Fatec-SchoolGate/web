@@ -11,4 +11,9 @@ export const navigationItems: NavigationItem[] = [
         icon: "octicon:organization-16",
         value: "/organizations"
     },
+    {
+        text: "Scanner",
+        icon: "mdi:qrcode-scan",
+        value: "/scanner"
+    },
 ];

@@ -2,7 +2,7 @@ import { ScheduleDto } from "@/views/subject/dto/schedule.dto";
 import { Card, Typography, styled } from "@mui/material"
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-import DayTypography from "./day-typography";
+import DayTypography from "../../../../../../@core/components/ui/day-typography";
 import Link from "next/link";
 
 interface ScheduleItemProps {

@@ -67,5 +67,22 @@
   "member": "Member",
   "owner": "Owner",
   "manage": "Manager",
-  "schedules": "Schedules"
+  "schedules": "Schedules",
+  "inviteCopiedToClipboard": "Invite copied to clipboard",
+  "errorGeneratingInvite": "Error when generating invite",
+  "creatingInvite": "Creating invite",
+  "accept": "Accept",
+  "acceptingInvite": "Accepting invite",
+  "inviteAccepted": "Invite accepted",
+  "failedToAcceptInvite": "Failed to accept invite",
+  "acceptInviteTitle": "Invite to join in the \"{{subjectTitle}}\"",
+  "continue": "Continue",
+  "loginSuccess": "Logged in!",
+  "loginError": "There was an error in your login",
+  "loginLoading": "Logging you in",
+  "registerSuccess": "Account created!",
+  "registerError": "There was an error creating your account",
+  "registerLoading": "Creating account",
+  "confirmPresence": "Confirm presence",
+  "scan": "Scan"
 }

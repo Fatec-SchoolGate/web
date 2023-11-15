@@ -4,9 +4,9 @@ import { defaultPalette } from "./default-palette";
 export const serikaDark: Partial<Palette> = {
     ...defaultPalette,
     primary: {
-        light: "#e2b714",
-        main: "#e2b714",
-        dark: "#e2b714",
+        light: "#009ddc",
+        main: "#3178c6",
+        dark: "#357bc9",
         contrastText: "#d1d0c5"
     },
     background: {

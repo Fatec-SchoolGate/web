@@ -42,7 +42,6 @@ const FormTextField = (props: Props) => {
                     helperText={error ? t(error.message ?? "") : null}
                     error={!!error}
                     value={value}
-                    type={(type === "password") ? (isVisible ? "password" : "text") : type}
                     onChange={onChange}
                     InputProps={{
                         startAdornment: (
@@ -66,6 +65,7 @@ const FormTextField = (props: Props) => {
                         )
                     }}
                     {...props}
+                    type={(type === "password") ? (isVisible ? "password" : "text") : type}
                 />
             )}
         />

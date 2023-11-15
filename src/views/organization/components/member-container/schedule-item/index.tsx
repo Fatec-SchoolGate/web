@@ -2,8 +2,9 @@ import { ScheduleDto } from "@/views/subject/dto/schedule.dto";
 import { Box, Card, Typography, styled } from "@mui/material"
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-import DayTypography from "@/views/subject/components/schedule-section/components/schedule-item/day-typography";
+import DayTypography from "@/@core/components/ui/day-typography";
 import Link from "next/link";
+import ScheduleDayTypography from "@/@core/components/ui/schedule-day-typography";
 
 interface ScheduleItemProps {
     schedule: ScheduleDto;
@@ -45,21 +46,7 @@ const ScheduleItem = (props: ScheduleItemProps) => {
                     {schedule.startTime} - {schedule.endTime}
                 </Typography>
             </Box>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    gap: 4
-                }}
-            >
-                <DayTypography label={`${t("sunday")}`} selected={schedule.sunday}/>
-                <DayTypography label={`${t("monday")}`} selected={schedule.monday} />
-                <DayTypography label={`${t("tuesday")}`} selected={schedule.tuesday} />
-                <DayTypography label={`${t("wednesday")}`} selected={schedule.wednesday} />
-                <DayTypography label={`${t("thursday")}`} selected={schedule.thursday} />
-                <DayTypography label={`${t("friday")}`} selected={schedule.friday} />
-                <DayTypography label={`${t("saturday")}`} selected={schedule.saturday} />
-            </div>
+            <ScheduleDayTypography schedule={schedule}/>
         </Card>
     );
 }

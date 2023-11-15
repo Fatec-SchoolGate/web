@@ -1,14 +1,15 @@
-import { Card } from "@mui/material";
-import AttendancesTable from "./components/attendances-table";
-import Header from "./components/header";
+import { useCurrentSchedule } from "./utils/use-current-schedule";
+import AdminPage from "./components/admin-page";
+import MemberPage from "./components/member-page";
 
 const ScheduleContainer = () => {
-    return (
-        <Card>
-            <Header/>
-            <AttendancesTable/>
-        </Card>
-    );
+
+    const { schedule, isLoading } = useCurrentSchedule();
+
+    if (isLoading) return <div>loading</div>;
+
+    if (schedule?.isAdmin) return <AdminPage/>;
+    else return <MemberPage/>
 }
 
 export default ScheduleContainer;

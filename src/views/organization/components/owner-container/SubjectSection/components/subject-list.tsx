@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useSubjects } from "../api/getSubjects";
 import { useSubjectSectionStore } from "../store";
 import { useRouter } from "next/router";
+import SubjectItem from "./subject-item";
 
 const SubjectList = () => {
 
@@ -32,13 +33,17 @@ const SubjectList = () => {
                 </Typography>
             )}
             {subjects.map((subject) => (
-                <ListItemCard
-                    id={subject.id}
+                <SubjectItem
+                    subject={subject}
                     key={subject.id}
-                    title={subject.name}
-                    onEditClick={openFormEdit}
-                    previewUrl={`${organizationId}/subjects/${subject.id}`}
                 />
+                // <ListItemCard
+                //     id={subject.id}
+                //     key={subject.id}
+                //     title={subject.name}
+                //     onEditClick={openFormEdit}
+                //     previewUrl={`${organizationId}/subjects/${subject.id}`}
+                // />
             ))}
         </Box>
     );

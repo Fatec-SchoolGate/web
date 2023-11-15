@@ -1,13 +1,14 @@
-import { Box, useTheme } from "@mui/material";
+import { Box, SxProps, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
 interface LogoIconProps {
     width?: number;
     height?: number;
+    sx?: SxProps;
 }
 
 function LogoIcon(props: LogoIconProps) {
-    const { width = 128, height = 116 } = props;
+    const { width = 128, height = 116, sx } = props;
 
     const theme = useTheme();
 
@@ -19,6 +20,7 @@ function LogoIcon(props: LogoIconProps) {
             height={height}
             fill="none"
             viewBox="0 0 128 116"
+            sx={sx}
         >
             <path
                 fill={theme.palette.primary.main}

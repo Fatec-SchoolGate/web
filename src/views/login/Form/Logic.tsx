@@ -25,7 +25,7 @@ const Logic = (props: Props) => {
         defaultValues
     } = props;
 
-    const { mutate: login, isLoading } = useLogin();
+    const { mutateAsync: login, isLoading } = useLogin();
     const { t } = useTranslation();
     const router = useRouter();
 
@@ -36,9 +36,9 @@ const Logic = (props: Props) => {
 
     const handleSubmit = async (loginDto: LoginDto) => {
         if (isLoading) return;
-        login(loginDto, {
+
+        toast.promise(login(loginDto, {
             onSuccess: () => {
-                toast.success(t("loginSuccessful"));
                 router.replace(DEFAULT_AUTH_ROUTE);
             },
             onError: (error) => {
@@ -49,6 +49,10 @@ const Logic = (props: Props) => {
                     });
                 }
             }
+        }), {
+            success: t("loginSuccess"),
+            error: t("loginError"),
+            loading: t("loginLoading")
         });
     }
 

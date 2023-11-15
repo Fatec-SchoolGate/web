@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const ActionAvatar = () => {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-    const { user } = useAuthStore();
+    const { user, logout } = useAuthStore();
     const { t } = useTranslation();
 
     const openMenu = (event: MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
@@ -38,7 +38,7 @@ const ActionAvatar = () => {
                         {t("profile")}
                     </Typography>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={logout}>
                     <ListItemIcon>
                         <Icon icon={"mdi:sign-out"}/>
                     </ListItemIcon>

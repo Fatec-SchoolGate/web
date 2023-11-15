@@ -67,5 +67,22 @@
   "manage": "Gerente",
   "member": "Membro",
   "owner": "Dono",
-  "schedules": "Aulas"
+  "schedules": "Aulas",
+  "inviteCopiedToClipboard": "Convite copiado com sucesso",
+  "errorGeneratingInvite": "Erro ao criar convite",
+  "creatingInvite": "Criando convite",
+  "accept": "Aceitar",
+  "acceptingInvite": "Aceitando convite",
+  "inviteAccepted": "Convite aceito",
+  "failedToAcceptInvite": "Falha ao aceitar o convite",
+  "acceptInviteTitle": "Convite para entrar em \"{{subjectTitle}}\"",
+  "continue": "Continuar",
+  "loginSuccess": "Logado com sucesso!",
+  "loginError": "Erro ao efetuar o login",
+  "loginLoading": "Entrando na sua conta",
+  "registerSuccess": "Conta cadastrada com sucesso!",
+  "registerError": "Houve um erro ao criar a conta",
+  "registerLoading": "Criando sua conta",
+  "confirmPresence": "Confirmar presença",
+  "scan": "Escanear"
 }

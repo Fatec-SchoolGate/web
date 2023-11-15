@@ -4,4 +4,10 @@ export type SubjectDto = {
     description?: string;
     displayImage?: string;
     backgroundImage?: string;
+    currentUserRole?: string;
+    adminUserId: string;
+    organizationSubject?: {
+        organizationId: string;
+        subjectId: string;
+    }
 }

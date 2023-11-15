@@ -26,7 +26,7 @@ const Logic = (props: Props) => {
         defaultValues
     } = props;
 
-    const { mutate: register, isLoading } = useRegister();
+    const { mutateAsync: register, isLoading } = useRegister();
     const { t } = useTranslation();
     const router = useRouter();
 
@@ -38,7 +38,7 @@ const Logic = (props: Props) => {
     const handleSubmit = async (registerDto: RegisterDto) => {
         if (isLoading) return;
         
-        register(registerDto, {
+        toast.promise(register(registerDto, {
             onSuccess: () => {
                 toast.success(t("registerSuccessful"));
                 router.replace(DEFAULT_AUTH_ROUTE);
@@ -51,6 +51,10 @@ const Logic = (props: Props) => {
                     });
                 }
             }
+        }), {
+            success: t("registerSuccess"),
+            error: t("registerError"),
+            loading: t("registerLoading")
         });
     }
 
