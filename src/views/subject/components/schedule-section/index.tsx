@@ -8,7 +8,7 @@ const ScheduleSection = () => {
         <Box>
             <Header/>
             <List/>
-            <QrCodeModal/>
+            {/* <QrCodeModal/> */}
         </Box>
     );
 }

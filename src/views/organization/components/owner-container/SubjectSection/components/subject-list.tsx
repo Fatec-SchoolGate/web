@@ -21,7 +21,13 @@ const SubjectList = () => {
     if (isLoading) return <Skeleton height={300}/>
 
     return (
-        <Box>
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 4
+            }}
+        >
             {subjects.length == 0 && (
                 <Typography
                     sx={{

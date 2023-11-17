@@ -84,5 +84,10 @@
   "registerError": "There was an error creating your account",
   "registerLoading": "Creating account",
   "confirmPresence": "Confirm presence",
-  "scan": "Scan"
+  "scan": "Scan",
+  "address": "Address",
+  "todaySchedules": "Today events",
+  "nEvents": "{{eventsCount}} events",
+  "save": "Save",
+  "newSubject": "New subject"
 }

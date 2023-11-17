@@ -1,5 +1,6 @@
 import { OrganizationDto } from "@/@core/dto/organizationDto";
 import { Box, Card, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 interface OrganizationHeaderProps {
     organization: OrganizationDto;
@@ -7,6 +8,8 @@ interface OrganizationHeaderProps {
 
 const OrganizationHeader = (props: OrganizationHeaderProps) => {
     const { organization } = props;
+
+    const { t } = useTranslation();
 
     return (
         <Card
@@ -19,8 +22,8 @@ const OrganizationHeader = (props: OrganizationHeaderProps) => {
                 <Typography variant={"h2"}>
                     {organization.name}
                 </Typography>
-                <Typography variant={"h5"}>
-                    {organization.description}
+                <Typography variant={"subtitle2"}>
+                    {organization.code} ‧ {organization?.schedules?.length ?? 0} {t("schedules")} ‧ {organization?.organizationUsers?.length ?? 0} {t("members")}
                 </Typography>
             </Box>
         </Card>

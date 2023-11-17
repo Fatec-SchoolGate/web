@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import ScheduleCard from "./schedule-card";
 import { useTranslation } from "react-i18next";
 import ScheduleItem from "./schedule-item";
+import NoResults from "@/@core/components/ui/no-results";
+import ListSkeleton from "@/@core/components/ui/list-skeleton";
 
 const List = () => {
     const { t } = useTranslation();
@@ -13,6 +15,8 @@ const List = () => {
     const { data: response, isLoading } = useSchedules(subjectId as string);
     const schedules = response?.data.schedules ?? [];
     
+    if (isLoading) return <ListSkeleton/>;
+
     return (
         <Box
             sx={{
@@ -22,14 +26,7 @@ const List = () => {
                 mb: 4
             }}
         >
-            {schedules.length === 0 && (
-                <Typography
-                    textAlign={"center"}
-                    p={5}
-                >
-                    {t("noResults")}
-                </Typography>
-            )}
+            {schedules.length === 0 && <NoResults/>}
             {schedules.map((schedule) => (
                 <ScheduleItem
                     schedule={schedule}

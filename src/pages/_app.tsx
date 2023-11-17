@@ -15,8 +15,12 @@ import { Toaster } from 'react-hot-toast';
 import "../configs/i18n";
 import "../styles/global.css";
 import LoadingSpinner from '@/@core/components/ui/loading-spinner';
+import Head from 'next/head';
+import { useSettingsStore } from '@/@core/stores/settingsStore';
 
 const App = ({ Component, pageProps }: AppLayoutProps) => {
+
+	const { appTitle } = useSettingsStore();
 
 	const getLayout = Component.getLayout || ((page: ReactNode) => <DefaultLayout>{page}</DefaultLayout>);
 	const router = useRouter();
@@ -40,6 +44,9 @@ const App = ({ Component, pageProps }: AppLayoutProps) => {
 		<QueryClientProvider
 			client={queryClient}
 		>
+			<Head>
+                <title>{appTitle}</title>
+            </Head>
 			<ThemeContainer>
 				<Toaster
 					position={"bottom-center"}

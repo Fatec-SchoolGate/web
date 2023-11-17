@@ -24,7 +24,7 @@ const Header = () => {
                 {subject?.name}
             </Typography>
             <Typography>
-                <span style={{ fontWeight: 700 }}>{t("description")}</span>: {subject?.description}
+                {subject?.description}
             </Typography>
         </Box>
     );

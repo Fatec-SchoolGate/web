@@ -1,4 +1,4 @@
-import { Box, Card, Chip, Typography } from "@mui/material"
+import { Box, Card, Chip, Typography } from "@mui/material";
 import Link from "next/link";
 import { OrganizationDto } from "@/@core/dto/organizationDto";
 import { useTranslation } from "react-i18next";

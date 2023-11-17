@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { UseFormReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import FormTextField from "@/@core/components/form/FormTextField";
@@ -36,7 +36,7 @@ const View = (props: Props) => {
                 gap: 4
             }}
         >
-            <StickyLinearProgress isLoading={isLoading}/>
+            <Typography variant={"h4"} mb={4}>{t("newSubject")}</Typography>
             <FormTextField
                 control={control}
                 label={t("name") ?? ""}
@@ -66,7 +66,6 @@ const View = (props: Props) => {
                 <Button
                     disabled={isLoading}
                     variant={"outlined"}
-                    color={"secondary"}
                 >
                     {t("cancel")}
                 </Button>

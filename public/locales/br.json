@@ -84,5 +84,10 @@
   "registerError": "Houve um erro ao criar a conta",
   "registerLoading": "Criando sua conta",
   "confirmPresence": "Confirmar presença",
-  "scan": "Escanear"
+  "scan": "Escanear",
+  "address": "Endereço",
+  "todaySchedules": "Eventos de hoje",
+  "nEvents": "{{eventsCount}} eventos",
+  "save": "Salvar",
+  "newSubject": "Nova matéria"
 }

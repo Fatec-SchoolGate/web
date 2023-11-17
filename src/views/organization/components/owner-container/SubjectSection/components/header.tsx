@@ -12,10 +12,9 @@ const Header = () => {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "space-between"
+                justifyContent: "flex-end"
             }}
         >
-            <Typography variant={"h4"}>{t("subject")}</Typography>
             <Button
                 variant={"contained"}
                 onClick={openForm}

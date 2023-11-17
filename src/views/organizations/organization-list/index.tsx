@@ -3,12 +3,16 @@ import ListItemCard from "../../../@core/components/ui/ListItemCard";
 import { useOrganizations } from "@/@core/api/organizations/getOrganizations";
 import { useTranslation } from "react-i18next";
 import OrganizationItem from "./organization-item";
+import ListSkeleton from "@/@core/components/ui/list-skeleton";
+import NoResults from "@/@core/components/ui/no-results";
 
 const OrganizationList = () => {
 
     const { t } = useTranslation();
-    const { data } = useOrganizations();
+    const { data, isLoading } = useOrganizations();
     const organizations = data?.data.organizations;
+
+    if (isLoading) return <ListSkeleton/>;
 
     return (
         <Box

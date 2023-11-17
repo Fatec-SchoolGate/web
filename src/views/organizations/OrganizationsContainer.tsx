@@ -9,7 +9,7 @@ const OrganizationsContainer = () => {
     return (
         <Card
             sx={{
-                px: (theme) => theme.spacing(5)
+                p: 4
             }}
         >
             <Header/>

@@ -13,8 +13,8 @@ const OnlineCircle = (props: OnlineCircleProps) => {
         <Box
             sx={{
                 bgcolor: (theme) => online ? theme.palette.success.main : theme.palette.error.main,
-                width: 15,
-                height: 15,
+                width: 10,
+                height: 10,
                 borderRadius: 100
             }}
         />

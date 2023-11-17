@@ -12,7 +12,7 @@ const Header = () => {
         <Box
             sx={{
                 display: "flex",
-                justifyContent: "flex-end"
+                justifyContent: "flex-end",
             }}
         >
             <Button

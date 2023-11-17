@@ -2,10 +2,12 @@ import { Box, Skeleton, Typography } from "@mui/material";
 import QrCode from "./qr-code";
 import InviteButton from "./invite-button";
 import { useCurrentSchedule } from "@/views/schedule/utils/use-current-schedule";
+import { isScheduleOnline } from "@/views/schedule/utils/is-schedule-online";
+import OnlineCircle from "@/@core/components/ui/online-status";
 
 const Header = () => {
     const { schedule, isLoading } = useCurrentSchedule();
-
+    
     if (isLoading) {
         return (
             <Skeleton
@@ -25,11 +27,21 @@ const Header = () => {
                 justifyContent: "space-between"
             }}
         >
-            <Typography
-                variant={"h4"}    
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: ".5rem"
+                }}
             >
-                {schedule?.subject?.name} • {schedule?.startTime} - {schedule?.endTime}
-            </Typography>
+                <Typography
+                    variant={"h4"}    
+                >
+                    {schedule?.subject?.name} • {schedule?.startTime} - {schedule?.endTime} •
+                </Typography>
+                <OnlineCircle online={isScheduleOnline(schedule)}/>
+            </div>
             <Box>
                 <InviteButton/>
                 <QrCode/>

@@ -7,6 +7,7 @@ import ButtonOverride from "./button";
 import ListOverride from "./list";
 import DrawerOverride from "./drawer";
 import BreadcrumbsOverride from "./breadcrumbs";
+import DataGridOverrides from "./datagrid";
 
 const overrides = (): ThemeOptions["components"] => {
     return {
@@ -17,7 +18,8 @@ const overrides = (): ThemeOptions["components"] => {
         ...ChipOverride(),
         ...ListOverride(),
         ...DrawerOverride(),
-        ...BreadcrumbsOverride()
+        ...BreadcrumbsOverride(),
+        ...DataGridOverrides()
     };
 }
 

@@ -2,8 +2,10 @@ import { useAuthStore } from "@/@core/stores/authStore";
 import { Box, GlobalStyles, Typography } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import LogoIcon from "../../logo";
+import { useSettingsStore } from "@/@core/stores/settingsStore";
 
 const LoadingSpinner = () => {
+    const { appTitle } = useSettingsStore();
     const { loading } = useAuthStore();
     
     return (
@@ -79,7 +81,7 @@ const LoadingSpinner = () => {
                                     }
                                 }}    
                             >
-                                SchoolGate
+                                {appTitle}
                             </Typography>
                         </Box>
                     </Box>

@@ -1,7 +1,9 @@
 import OrganizationContainer from "@/views/organization";
 
 const OrganizationPage = () => {
-    return <OrganizationContainer/>;
+    return (
+        <OrganizationContainer/>
+    );
 }
 
 export default OrganizationPage;

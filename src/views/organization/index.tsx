@@ -2,11 +2,13 @@ import { useRouter } from "next/router";
 import { useOrganization } from "./api/get-organization";
 import MemberContainer from "./components/member-container";
 import OwnerContainer from "./components/owner-container";
-import { CircularProgress } from "@mui/material";
 import Loading from "./components/loading.";
 import OrganizationHeader from "./components/organization-header";
+import Head from "next/head";
+import { useSettingsStore } from "@/@core/stores/settingsStore";
 
 const OrganizationContainer = () => {
+    const { appTitle } = useSettingsStore();
 
     const router = useRouter();
     const { organizationId } = router.query;
@@ -26,6 +28,9 @@ const OrganizationContainer = () => {
                 gap: "1rem"
             }}
         >
+            <Head>
+                <title>{organization?.name} - {appTitle}</title>
+            </Head>
             <OrganizationHeader organization={organization!}/>
             {organization?.userRole == "owner" && (<OwnerContainer/>)}
             {organization?.userRole == "member" && (<MemberContainer/>)}

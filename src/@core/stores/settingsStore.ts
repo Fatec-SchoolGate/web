@@ -9,5 +9,5 @@ interface SettingsState {
 export const useSettingsStore = create<SettingsState>((set) => ({
     mode: "dark",
     toggleThemeMode: () => set((store) => ({ mode: store.mode === "light" ? "dark" : "light" })),
-    appTitle: "SchoolGate"
+    appTitle: "Presence"
 }));

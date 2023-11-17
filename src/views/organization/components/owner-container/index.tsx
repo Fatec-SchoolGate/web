@@ -14,8 +14,6 @@ const OwnerContainer = () => {
     return (
         <Card>
             <Tabs
-                indicatorColor={"secondary"}
-                textColor={"secondary"}
                 value={tab}
                 onChange={(_, value) => changeTab(value)}
             >

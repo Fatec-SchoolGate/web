@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import DayTypography from "../../../../../../@core/components/ui/day-typography";
 import Link from "next/link";
+import ScheduleDayTypography from "@/@core/components/ui/schedule-day-typography";
 
 interface ScheduleItemProps {
     schedule: ScheduleDto;
@@ -42,7 +43,8 @@ const ScheduleItem = (props: ScheduleItemProps) => {
                     {schedule.startTime} - {schedule.endTime}
                 </Typography>
             </div>
-            <div
+            <ScheduleDayTypography schedule={schedule}/>
+            {/* <div
                 style={{
                     display: "flex",
                     flexDirection: "row",
@@ -56,7 +58,7 @@ const ScheduleItem = (props: ScheduleItemProps) => {
                 <DayTypography label={`${t("thursday")}`} selected={schedule.thursday} />
                 <DayTypography label={`${t("friday")}`} selected={schedule.friday} />
                 <DayTypography label={`${t("saturday")}`} selected={schedule.saturday} />
-            </div>
+            </div> */}
         </Card>
     );
 }
