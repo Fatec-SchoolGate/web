@@ -89,5 +89,19 @@
   "todaySchedules": "Eventos de hoje",
   "nEvents": "{{eventsCount}} eventos",
   "save": "Salvar",
-  "newSubject": "Nova matéria"
+  "newSubject": "Nova matéria",
+  "noAttendancesFound": "Sem registros de presença",
+  "showingNofNAttendance": "Exibindo {{fromRow}} a {{toRow}} de {{rowCount}} registros",
+  "confirmAttendanceSuccess": "Presença marcada com sucesso!",
+  "confirmAttendanceLoading": "Confirmando sua presença!",
+  "ATTENDANCE_FOR_TODAY_ALREADY_CREATED": "Você já registrou a sua presença hoje",
+  "tokenDecodeError": "O código expirou! Tente novamente",
+  "SCHEDULE_DONT_EXIST": "Aula presente no código não existe",
+  "SCHEDULE_TIME_NOT_HAPPENING_NOW": "Aula não está acontecendo no momento, tente quando ela estiver aberta",
+  "profilePhoto": "Foto de perfil",
+  "isPresent": "Está presente?",
+  "creatingOrganization": "Criando organização",
+  "successCreatingOrganization": "Organização criada com sucesso",
+  "errorCreatingOrganization": "Ocorreu um erro ao criar a organização",
+  "newOrganization": "Nova organização"
 }

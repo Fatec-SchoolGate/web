@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Box, GlobalStyles, IconButton } from "@mui/material";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
+import { AxiosError } from "axios";
 
 interface ScannerProps {
     onClose: () => void;
@@ -18,7 +19,7 @@ const ScannerSection = (props: ScannerProps) => {
 
     const { t } = useTranslation();
 
-    const { mutateAsync: confirmAttendance, isLoading } = useConfirmAttendance();
+    const { mutate: confirmAttendance, isLoading } = useConfirmAttendance();
 
     const onDecodeQrCode = (result: string, timestamp: number) => {
         if (isLoading || (lastDecodeTimestamp != null && timestamp - 1000 < lastDecodeTimestamp)) return;
@@ -26,12 +27,19 @@ const ScannerSection = (props: ScannerProps) => {
         onClose();
         
         setLastDecodeTimestamp(timestamp);
-        toast.promise(confirmAttendance(result, {
-            // onSuccess: onClose
-        }), {
-            success: t("confirmAttendanceSuccess"),
-            error: t("confirmAttendanceError"),
-            loading: t("confirmAttendanceLoading")
+        const toastId = toast.loading(t("confirmAttendanceLoading"));
+        
+        confirmAttendance(result, {
+            onSuccess: () => {
+                toast.dismiss(toastId);
+                toast.success(t("confirmAttendanceSuccess"));
+            },
+            onError: (error) => {
+                toast.dismiss();
+                if (error instanceof AxiosError && error.response) {
+                    toast.error(t(error.response?.data?.message ?? "attendanceError"));
+                }
+            }
         });
     }
 

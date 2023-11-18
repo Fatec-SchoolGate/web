@@ -63,15 +63,12 @@ const View = (props: Props) => {
             <Box
                 sx={{
                     display: "flex",
-                    flexDirection: {
-                        xs: "column",
-                        vs: "row"
-                    },
+                    flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "space-between"
                 }}
             >
-                <Box
+                {/* <Box
                     sx={{
                         display: "flex",
                         flexDirection: "row",
@@ -80,7 +77,7 @@ const View = (props: Props) => {
                 >
                     <Checkbox/>
                     <Typography>{t("rememberMe")}</Typography>
-                </Box>
+                </Box> */}
                 <Box>
                     <Typography
                         component={Link}

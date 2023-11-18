@@ -1,3 +1,4 @@
+import { UserDto } from "@/@core/dto/userDto";
 import { SubjectDto } from "@/views/organization/components/owner-container/SubjectSection/dto/subjectDto";
 
 export interface ScheduleDto {
@@ -18,4 +19,7 @@ export interface ScheduleDto {
     updatedAt: string;
     isAdmin?: boolean;
     subject?: SubjectDto;
+    users?: {
+        user: UserDto;
+    }[]
 }

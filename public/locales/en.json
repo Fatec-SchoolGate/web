@@ -89,5 +89,19 @@
   "todaySchedules": "Today events",
   "nEvents": "{{eventsCount}} events",
   "save": "Save",
-  "newSubject": "New subject"
+  "newSubject": "New subject",
+  "noAttendancesFound": "No attendances found",
+  "showingNofNAttendance": "Showing {{fromRow}} to {{toRow}} of {{rowCount}} attendances",
+  "confirmAttendanceSuccess": "Presence registered!",
+  "confirmAttendanceLoading": "Wait! We are registering your presence!",
+  "ATTENDANCE_FOR_TODAY_ALREADY_CREATED": "You already confirmed your presence",
+  "tokenDecodeError": "The token has expired! Try again",
+  "SCHEDULE_DONT_EXIST": "Schedule doesn't exist",
+  "SCHEDULE_TIME_NOT_HAPPENING_NOW": "Schedule not happening now! Try again when it is online",
+  "profilePhoto": "Profile photo",
+  "isPresent": "Is present?",
+  "creatingOrganization": "Creating organization",
+  "successCreatingOrganization": "Organization created!",
+  "errorCreatingOrganization": "There was an error while creating the organization",
+  "newOrganization": "New organization"
 }

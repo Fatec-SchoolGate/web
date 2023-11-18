@@ -18,7 +18,7 @@ const ActionAvatar = () => {
             <IconButton
                 onClick={openMenu}
             >
-                <Avatar src={`${user?.profileImage}?alt=media`}>
+                <Avatar src={`${process.env.NEXT_PUBLIC_URL}/${user?.profileImage}`}>
                     {user?.name.charAt(0)}
                 </Avatar>
             </IconButton>

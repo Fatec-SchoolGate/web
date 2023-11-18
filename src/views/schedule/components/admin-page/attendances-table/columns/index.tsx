@@ -9,7 +9,7 @@ export const useColumns = (): GridColDef[] => {
 		{
 			field: "date",
 			headerName: `${t("date")}`,
-			flex: 4,
+			flex: 3,
 			minWidth: 150
 		},
 		{

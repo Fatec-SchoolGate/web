@@ -43,7 +43,7 @@ const Logic = (props: Props) => {
                 closeForm();
             }
         }), {
-            loading: t("creating"),
+            loading: t("creatingOrganization"),
             success: t("successCreatingOrganization"),
             error: t("errorCreatingOrganization")
         });

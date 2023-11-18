@@ -44,8 +44,8 @@ const AttendancesTable = () => {
 					columns={columns}
 					rows={formattedGroupedAttendances}
 					localeText={{
-						noRowsLabel: `${t("noPlansFound")}`,
-						noResultsOverlayLabel: `${t("noPlansFound")}`
+						noRowsLabel: `${t("noAttendancesFound")}`,
+						noResultsOverlayLabel: `${t("noAttendancesFound")}`
 					}}
 					slots={{
 						pagination: Footer,

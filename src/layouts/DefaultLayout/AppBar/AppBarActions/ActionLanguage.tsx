@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const languages = [
     { text: "Português", value: "br" },
     { text: "English", value: "en" },
-    { text: "Español", value: "es" },
+    // { text: "Español", value: "es" },
 ];
 
 const ActionLanguage = () => {

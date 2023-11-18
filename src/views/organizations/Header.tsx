@@ -25,11 +25,6 @@ const Header = () => {
             <Button
                 onClick={openForm}
                 variant={"contained"}
-                startIcon={(
-                    <Icon
-                        icon={"material-symbols:add"}
-                    />
-                )}
             >
                 {t("add")}
             </Button>

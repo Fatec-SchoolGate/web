@@ -19,6 +19,8 @@ const View = (props: Props) => {
         onSubmit
     } = props;
 
+    const { closeForm } = useSubjectSectionStore();
+
     const { control, handleSubmit } = form;
     const { t } = useTranslation();
     const isCreating = useIsCreatingSubject();
@@ -66,6 +68,7 @@ const View = (props: Props) => {
                 <Button
                     disabled={isLoading}
                     variant={"outlined"}
+                    onClick={closeForm}
                 >
                     {t("cancel")}
                 </Button>

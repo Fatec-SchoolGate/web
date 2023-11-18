@@ -6,7 +6,7 @@ import { JwtTokenDecodedDto } from "@/@core/dto/jwtTokenDto";
 import jwt from "jwt-decode";
 import api from "@/configs/api";
 
-const refreshToken = async () => api.post("/auth/refresh-token");
+const refreshToken = async () => await api.post("/auth/refresh-token");
 
 export const useRefreshToken = () => {
     const {

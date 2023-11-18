@@ -29,17 +29,7 @@ const OrganizationList = () => {
                     key={organization.id}
                 />
             ))}
-            {!organizations || organizations?.length == 0 && (
-                <Typography
-                    variant={"h4"}
-                    sx={{
-                        padding: (theme) => theme.spacing(8),
-                        textAlign: "center"
-                    }}
-                >
-                    {t("noResults")}
-                </Typography>
-            )}
+            {!organizations || organizations?.length == 0 && <NoResults/>}
         </Box>
     );
 }

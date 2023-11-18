@@ -75,6 +75,7 @@ const LoadingSpinner = () => {
                             <Typography
                                 fontSize={60}
                                 sx={{
+                                    userSelect: "none",
                                     display: {
                                         xs: "none",
                                         sm: "inherit"

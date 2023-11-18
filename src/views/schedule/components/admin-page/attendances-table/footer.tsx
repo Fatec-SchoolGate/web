@@ -32,7 +32,7 @@ const Footer = () => {
 			}}
 		>
 			<Typography>
-				{t("ShowingNofNPlans", {
+				{t("showingNofNAttendance", {
 					fromRow: rowRange ? rowRange?.firstRowIndex + 1 : 0,
 					toRow: rowRange ? rowRange?.lastRowIndex + 1 : 0,
 					rowCount: rowCount

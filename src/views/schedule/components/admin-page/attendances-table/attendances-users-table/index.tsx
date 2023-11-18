@@ -8,24 +8,18 @@ import UsersTable from "./table";
 const AttendancesUsersTable = () => {
     const { attendanceDate, closeModal } = useAttendancesUsersTable();
 
-    const scheduleId = useScheduleId();
-	const { data: response, isLoading } = useScheduleGroupedAttendances(scheduleId);
-	const groupedAttendances = response?.data.groupedAttendances;
-
-    const users = useMemo(() => {
-        if (!groupedAttendances || !attendanceDate) return [];
-
-        return groupedAttendances[attendanceDate].users;
-    }, [groupedAttendances, attendanceDate]);
-
     return (
         <Dialog
             open={!!attendanceDate}
             onClose={closeModal}
+            PaperProps={{
+                sx: {
+                    width: "90vw",
+                    maxWidth: "none"
+                }
+            }}
         >
-            <UsersTable
-                users={users}
-            />
+            <UsersTable/>
         </Dialog>
     );
 }

@@ -2,7 +2,7 @@ import { useIsMutating, useMutation } from "react-query";
 import { CreateOrganizationDto } from "@/@core/dto/organization/createOrganizationDto";
 import api from "@/configs/api";
 
-const createOrganization = (organizationDto: CreateOrganizationDto) => api.post("/organizations", organizationDto);
+const createOrganization = async (organizationDto: CreateOrganizationDto) => await api.post("/organizations", organizationDto);
 
 const mutationKey = "create/organization";
 

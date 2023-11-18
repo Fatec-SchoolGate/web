@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { MouseEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useAttendancesUsersTable } from "../attendances-users-table/store";
+import { useAttendancesUsersTable } from "../../store";
 
 interface ActionsProps {
 	date: string;

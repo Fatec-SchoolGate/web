@@ -1,7 +1,7 @@
 import api from "@/configs/api";
 import { useMutation } from "react-query";
 
-const acceptInvite = (inviteId: string) => api.post("schedules/accept-invite", {
+const acceptInvite = async (inviteId: string) => await api.post("schedules/accept-invite", {
     inviteId
 });
 
