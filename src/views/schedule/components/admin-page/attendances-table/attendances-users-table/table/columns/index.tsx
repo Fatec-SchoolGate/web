@@ -23,8 +23,7 @@ export const useColumns = (): GridColDef[] => {
 		{
 			field: "name",
 			headerName: `${t("name")}`,
-			flex: 2,
-			renderCell: (params) => params.row.user.name
+			flex: 2
 		},
 		{
 			field: "email",

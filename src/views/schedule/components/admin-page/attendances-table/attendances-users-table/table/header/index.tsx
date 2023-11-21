@@ -1,8 +1,14 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import RowsPerPageSelector from "@/@core/components/table/RowsPerPageSelector";
 import SearchBarDataGrid from "@/@core/components/table/SearchBarDataGrid";
+import { useTranslation } from "react-i18next";
+import { useAttendancesUsersTable } from "../../store";
 
 const Header = () => {
+	const { t } = useTranslation();
+
+	const { attendanceDate } = useAttendancesUsersTable();
+
 	return (
 		<Box
 			sx={{
@@ -11,12 +17,10 @@ const Header = () => {
 				gap: 10,
 				display: "flex",
 				justifyContent: "right",
-				flexDirection: {
-					xs: "column",
-					md: "row"
-				}
+				flexDirection: "column"
 			}}
 		>
+			<Typography variant={"h4"}>{t("presences")} {attendanceDate ? new Date(Date.parse(attendanceDate)).toLocaleString("pt-BR", { dateStyle: "short" }) : ""}</Typography>
 			<Box
 				sx={{
 					display: "flex",
@@ -31,9 +35,9 @@ const Header = () => {
 			>
 				<RowsPerPageSelector />
 				<SearchBarDataGrid
-					searchItems={[
-						{ field: "date", operator: "contains" }
-					]}
+					// searchItems={[
+					// 	{ field: "user.name", operator: "contains" }
+					// ]}
 				/>
 			</Box>
 		</Box>

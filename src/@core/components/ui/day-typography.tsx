@@ -4,10 +4,11 @@ interface DayTypographyProps {
     label: string;
     selected?: boolean;
     underline?: boolean;
+    showDot?: boolean;
 }
 
 const DayTypography = (props: DayTypographyProps) => {
-    const { label, selected = false, underline = false } = props;
+    const { label, selected = false, underline = false, showDot = true } = props;
 
     return (
         <div
@@ -18,12 +19,14 @@ const DayTypography = (props: DayTypographyProps) => {
                 userSelect: "none"
             }}
         >
-            <Typography
-                sx={{ height: 15 }}
-                color={selected ? "primary" : "inherit"}
-            >
-                •
-            </Typography>
+            {showDot && (
+                <Typography
+                    sx={{ height: 15 }}
+                    color={selected ? "primary" : "inherit"}
+                >
+                    •
+                </Typography>
+            )}
             <Typography
                 sx={{
                     color: (theme) => selected ? theme.palette.primary.main : "inherit",

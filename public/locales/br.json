@@ -103,5 +103,11 @@
   "creatingOrganization": "Criando organização",
   "successCreatingOrganization": "Organização criada com sucesso",
   "errorCreatingOrganization": "Ocorreu um erro ao criar a organização",
-  "newOrganization": "Nova organização"
+  "newOrganization": "Nova organização",
+  "attendancesTable": "Tabela de presenças",
+  "export": "Exportar",
+  "until": "Até",
+  "actions": "Ações",
+  "addSchedule": "Adicionar aula",
+  "presences": "Presenças"
 }

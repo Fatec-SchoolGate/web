@@ -39,11 +39,12 @@ const UsersTable = () => {
 			const response: any = { ...user };
 			const hasAttended = attendedUsers.find((attendedUser) => attendedUser.id === user.user.id);
 			response.hasAttended = !!hasAttended;
+			response.name = user.user.name;
 
 			return response;
 		});
 	}, [users, attendedUsers]);
-	
+	console.log(mergedUsers);
 	return (
 		<Box
 			sx={{

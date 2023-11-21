@@ -1,23 +1,24 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import RowsPerPageSelector from "@/@core/components/table/RowsPerPageSelector";
 import SearchBarDataGrid from "@/@core/components/table/SearchBarDataGrid";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+	const { t } = useTranslation();
+
 	return (
 		<Box
 			sx={{
-				px: 10,
+				px: 4,
 				py: 5,
 				gap: 10,
 				display: "flex",
 				justifyContent: "right",
-				flexDirection: {
-					xs: "column",
-					md: "row"
-				}
+				flexDirection: "column"
 			}}
 		>
-			<Box
+			<Typography variant={"h4"}>{t("attendancesTable")}</Typography>
+			{/* <Box
 				sx={{
 					display: "flex",
 					alignItems: "center",
@@ -35,7 +36,7 @@ const Header = () => {
 						{ field: "date", operator: "contains" }
 					]}
 				/>
-			</Box>
+			</Box> */}
 		</Box>
 	);
 };

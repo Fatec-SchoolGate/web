@@ -103,5 +103,11 @@
   "creatingOrganization": "Creating organization",
   "successCreatingOrganization": "Organization created!",
   "errorCreatingOrganization": "There was an error while creating the organization",
-  "newOrganization": "New organization"
+  "newOrganization": "New organization",
+  "attendancesTable": "Attendances table",
+  "export": "Export",
+  "until": "Until",
+  "actions": "Actions",
+  "addSchedule": "Add schedule",
+  "presences": "Presences"
 }

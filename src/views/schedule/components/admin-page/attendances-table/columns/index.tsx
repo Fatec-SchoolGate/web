@@ -10,7 +10,18 @@ export const useColumns = (): GridColDef[] => {
 			field: "date",
 			headerName: `${t("date")}`,
 			flex: 3,
-			minWidth: 150
+			minWidth: 150,
+			renderCell: (params) => {
+				const date = new Date(Date.parse(params.row.date));
+				const longDate = date.toLocaleString("pt-BR", {
+					// weekday: "long",
+					// year: "numeric",
+					// month: "long",
+					dateStyle: "long"
+				});
+
+				return longDate;
+			}
 		},
 		{
 			field: "attendances",
@@ -26,7 +37,7 @@ export const useColumns = (): GridColDef[] => {
 		},
 		{
 			field: "actions",
-			headerName: `${t("AÇÕES")}`,
+			headerName: `${t("actions")}`,
 			flex: 1,
 			minWidth: 50,
 			renderCell: (params) => {

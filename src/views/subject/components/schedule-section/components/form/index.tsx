@@ -3,7 +3,7 @@ import { useScheduleClass } from "@/views/subject/api/create-schedule";
 import { useSchedules } from "@/views/subject/api/get-schedules";
 import { CreateScheduleDto as CreateScheduleDto } from "@/views/subject/dto/create-schedule-dto";
 import { useClassStore } from "@/views/subject/store";
-import { Box, Button, Dialog, TextField } from "@mui/material";
+import { Box, Button, Dialog, TextField, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -49,21 +49,22 @@ const Form = () => {
         >
             <Box
                 sx={{
-                    p: (theme) => theme.spacing(4)
+                    p: (theme) => theme.spacing(4),
+                    "& > *": {
+                        my: 3
+                    }
                 }}
             >
+                <Typography variant={"h4"} mt={0}>{t("addSchedule")}</Typography>
                 <SchedulePicker
                     onChange={setSchedule}
-                />
-                <TextField
-                    label={"Tag"}
-                    placeholder={"Tag"}
-                    fullWidth
-                    variant={"standard"}
                 />
                 <Button
                     variant={"contained"}
                     onClick={onSubmit}
+                    sx={{
+                        float: "right"
+                    }}
                 >
                     Adicionar
                 </Button>

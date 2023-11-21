@@ -31,6 +31,7 @@ const Actions = (props: ActionsProps) => {
 				open={!!anchorEl}
 			>
 				<MenuItem onClick={() => openModal(props.date)}>{t("seeUsers")}</MenuItem>
+				<MenuItem onClick={() => openModal(props.date)}>{t("export")}</MenuItem>
 			</Menu>
 		</>
 	);
