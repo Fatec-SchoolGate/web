@@ -12,7 +12,7 @@ const ActionAvatar = () => {
 
     const openMenu = (event: MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget);
     const closeMenu = () => setAnchorEl(null);
-
+    
     return (
         <>
             <IconButton
